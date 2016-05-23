@@ -1,0 +1,139 @@
+<div ng-app>
+  <div ng-controller="IncrementalCtrl">
+      <h1>Drug Wars</h1>
+      <h2>Cash: <span id="cash-count">{{numCash | currency}}</span></h2>
+      <h2>Debt: <span id="debt-count">{{numDebt | currency}}</span> 
+        <button id="pay-debt" ng-click="payDebt()">Pay Debt</button>
+      </h2>
+      <h2>Day: {{day}} Health: {{health}} Guns: {{guns}}</h2>
+      
+      <h2>Inventory:</h2>
+      
+      <h2 ng-hide="!numShrooms">Shrooms: 
+        <span id="shroom-count">{{numShrooms}} @ {{userShroomCost}}</span>
+        <button id="sell-shrooms"
+                ng-click="sellShrooms(numShrooms, shroomCost)">Sell - {{userShroomCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numPCP">PCP: 
+        <span id="pcp-count">{{numPCP}} @ {{userPCPCost | currency}}</span>
+        <button id="sell-PCP"
+                ng-click="sellPCP(numPCP, PCPCost)">Sell - {{userPCPCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numSpeed">Speed: 
+        <span id="speed-count">{{numSpeed}} @ {{userSpeedCost | currency}}</span>
+        <button id="sell-Speed"
+                ng-click="sellSpeed(numSpeed, speedCost)">Sell - {{userSpeedCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numLudes">Ludes: 
+        <span id="ludes-count">{{numLudes}} @ {{userLudesCost | currency}}</span>
+        <button id="sell-Ludes"
+                ng-click="sellLudes(numLudes, ludesCost)">Sell - {{userLudesCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numAcid">Acid: <span id="acid-count">{{numAcid}} @ {{userAcidCost | currency}}</span>
+        <button id="sell-Acid"
+                ng-click="sellAcid(numAcid, acidCost)">Sell - {{userAcidCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numWeed">Weed: <span id="weed-count">{{numWeed}} @ {{userWeedCost | currency}}</span>
+        <button id="sell-Weed"
+                ng-click="sellWeed(numWeed, weedCost)">Sell - {{userWeedCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numHeroin">Heroin: <span id="heroin-count">{{numHeroin}} @ {{userHeroinCost | currency}}</span>
+        <button id="sell-Heroin"
+                ng-click="sellHeroin(numHeroin, heroinCost)">Sell - {{userHeroinCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numOpium">Opium: <span id="opium-count">{{numOpium}} @ {{userOpiumCost | currency}}</span>
+        <button id="sell-Opium"
+                ng-click="sellOpium(numOpium, opiumCost)">Sell - {{userOpiumCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numMDA">MDA: <span id="mda-count">{{numMDA}} @ {{userMDACost | currency}}</span>
+        <button id="sell-MDA"
+                ng-click="sellMDA(numMDA, mdaCost)">Sell - {{userMDACost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numHashish">Hashish: <span id="hashish-count">{{numHashish}} @ {{userHashishCost | currency}}</span>
+        <button id="sell-Hashish"
+                ng-click="sellHashish(numHashish, hashishCost)">Sell - {{userHashishCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numPeyote">Peyote: <span id="peyote-count">{{numPeyote}} @ {{userPeyoteCost | currency}}</span>
+        <button id="sell-Peyote"
+                ng-click="sellPeyote(numPeyote, peyoteCost)">Sell - {{userPeyoteCost | currency}}
+        </button>
+      </h2>
+      <h2 ng-hide="!numCocaine">Cocaine: <span id="cocaine-count">{{numCocaine}} @ {{userCocaineCost | currency}}</span>
+        <button id="sell-Cocaine"
+                ng-click="sellCocaine(numPeyote, cocaineCost)">Sell - {{userCocaineCost | currency}}
+        </button>
+      </h2>
+      
+
+      <h2>{{currentLocation}} Drug Market:</h2>
+
+      <button id="buy-shrooms"
+              ng-click="buyShrooms()"
+              ng-disabled="shroomCost > numCash">Buy Shrooms - {{shroomCost | currency}}</button>
+      <button id="buy-pcp"
+              ng-click="buyPCP()"
+              ng-disabled="PCPCost > numCash">Buy PCP - {{PCPCost | currency}}</button>
+
+      <button id="buy-speed"
+              ng-click="buySpeed()"
+              ng-disabled="speedCost > numCash">Buy Speed - {{speedCost | currency}}</button>
+      <button id="buy-ludes"
+              ng-click="buyLudes()"
+              ng-disabled="ludesCost > numCash">Buy Ludes - {{ludesCost | currency}}</button>
+      <button id="buy-acid"
+              ng-click="buyAcid()"
+              ng-disabled="acidCost > numCash">Buy Acid - {{acidCost | currency}}</button>
+      <button id="buy-weed"
+              ng-click="buyWeed()"
+              ng-disabled="weedCost > numCash">Buy Weed - {{weedCost | currency}}</button>
+      <button id="buy-heroin"
+              ng-click="buyHeroin()"
+              ng-disabled="heroinCost > numCash">Buy Heroin - {{heroinCost | currency}}</button>
+      <button id="buy-opium"
+              ng-click="buyOpium()"
+              ng-disabled="opiumCost > numCash">Buy Opium - {{opiumCost | currency}}</button>
+      <button id="buy-mda"
+              ng-click="buyMDA()"
+              ng-disabled="mdaCost > numCash">Buy MDA - {{mdaCost | currency}}</button>
+      <button id="buy-hashish"
+              ng-click="buyHashish()"
+              ng-disabled="hashishCost > numCash">Buy Hashish - {{hashishCost | currency}}</button>
+      <button id="buy-peyote"
+              ng-click="buyPeyote()"
+              ng-disabled="peyoteCost > numCash">Buy Peyote - {{peyoteCost | currency}}</button>
+      <button id="buy-cocaine"
+              ng-click="buyCocaine()"
+              ng-disabled="cocaineCost > numCash">Buy Cocaine - {{cocaineCost | currency}}</button>
+
+      <h2>Jet to:</h2>
+
+      <button id="go-to-bronx"
+              ng-click="jet('Bronx')"
+              ng-disabled="currentLocation == 'Bronx'">Bronx</button>
+      <button id="go-to-brooklyn"
+              ng-click="jet('Brooklyn')"
+              ng-disabled="currentLocation == 'Brooklyn'">Brooklyn</button>
+      <button id="go-to-central-park"
+              ng-click="jet('Central Park')"
+              ng-disabled="currentLocation == 'Central Park'">Central Park</button>
+      <button id="go-to-coney-island"
+              ng-click="jet('Coney Island')"
+              ng-disabled="currentLocation == 'Coney Island'">Coney Island</button>
+      <button id="go-to-ghetto"
+              ng-click="jet('Ghetto')"
+              ng-disabled="currentLocation == 'Ghetto'">Ghetto</button>
+      <button id="go-to-manhattan"
+              ng-click="jet('Manhattan')"
+              ng-disabled="currentLocation == 'Manhattan'">Manhattan</button>
+    </div>
+</div>
