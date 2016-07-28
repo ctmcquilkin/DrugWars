@@ -52,7 +52,69 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.hashishCost = 1100;
 		$scope.peyoteCost = 360;
 		$scope.cocaineCost = 23270;
+
+		// For disabling current sector on Map
+		var statenIslandRegion = angular.element(document).find('#statenIsland');
+		var bronxRegion = angular.element(document).find('#theBronx');
+		var brooklynRegion = angular.element(document).find('#brooklyn');
+		var jerseyRegion = angular.element(document).find('#jerseyCity');
+		var coneyRegion = angular.element(document).find('#coneyIsland');
+		var queensRegion = angular.element(document).find('#queens');
+		var manRegion = angular.element(document).find('#manhattan');
 	
+		$scope.newGame = function() {
+					$scope.numCash = 2000;
+					$scope.numDebt = 5500;
+					$scope.day = 1;
+					$scope.health = 100;
+					$scope.guns = 0;
+				
+					$scope.currentLocation = 'Bronx';
+					$scope.locationCoEfficient = 1;
+				
+					// Initial user drug inventory
+					$scope.numShrooms = 0;
+					$scope.numPCP = 0;
+					$scope.numSpeed = 0;
+					$scope.numLudes = 0;
+					$scope.numAcid = 0;
+					$scope.numWeed = 0;
+					$scope.numHeroin = 0;
+					$scope.numOpium = 0;
+					$scope.numMDA = 0;
+					$scope.numHashish = 0;
+					$scope.numPeyote = 0;
+					$scope.numCocaine = 0;
+				
+					// Prices the user paid for their inventory:
+					$scope.userShroomCost = 830;
+					$scope.userPCPCost = 1570;
+					$scope.userSpeedCost = 200;
+					$scope.userLudesCost = 25;
+						$scope.userAcidCost = 3700;
+					$scope.userWeedCost = 690;
+					$scope.userHeroinCost = 10000;
+					$scope.userOpiumCost = 870;
+					$scope.userMDACost = 4330;
+					$scope.userHashishCost = 1100;
+					$scope.userPeyoteCost = 360;
+					$scope.userCocaineCost = 23270;
+				
+					// Initial market drug prices
+					$scope.shroomCost = 830;
+					$scope.PCPCost = 1570;
+					$scope.speedCost = 200;
+					$scope.ludesCost = 25;
+						$scope.acidCost = 3700;
+					$scope.weedCost = 690;
+					$scope.heroinCost = 10000;
+					$scope.opiumCost = 870;
+					$scope.mdaCost = 4330;
+					$scope.hashishCost = 1100;
+					$scope.peyoteCost = 360;
+					$scope.cocaineCost = 23270;
+		}
+
 		// Decrease numCash and numDebt every time pay-debt is clicked
 		$scope.payDebt = function() {
 			$scope.numDebt--;
@@ -246,40 +308,63 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			   switch (place) {
 				  case 'Bronx':
 					  this.active = $scope.active;
+					  bronxRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.5;  // each location has a different market
+					  $scope.toggle();
 					  $scope.day++;
+					  console.log('clicked Bronx');
 					  break;
 				  case 'Brooklyn':
 					  this.active = $scope.active;
+					  console.log(brooklynRegion)
+					  brooklynRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.2;
+					  $scope.toggle();
 					  $scope.day++;
 					  break;
-				  case 'Central Park':
+				  case 'Jersey City':
 					  this.active = $scope.active;
+					  jerseyRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 0.98;
+					  $scope.toggle();
 					  $scope.day++;
 					  break;
 				  case 'Coney Island':
 					  this.active = $scope.active;
+					  coneyRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.3;
+					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
-				  case 'Ghetto':
+				  case 'Queens':
 					  this.active = $scope.active;
+					  queensRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.llocationCoEfficient = 0.99;
+					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
 				  case 'Manhattan':
 					  this.active = $scope.active;
+					  manRegion.addClass('noHover');
+					  $scope.currentLocation = place;
+					  $scope.locationCoEfficient = 2.4;
+					  $scope.toggle();
+					  console.log($scope.locationCoEfficient);
+					  $scope.day++;
+					  break;
+				  case 'Shaolin':
+					  this.active = $scope.active;
+					  statenIslandRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.4;
+					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
@@ -291,6 +376,13 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 				alert('game over. Debt:' + $scope.numDebt);
 			}
 		};
+
+		$scope.toggle = function() {
+			$scope.mapOpen =! $scope.mapOpen;
+		};
+		$scope.mapOpen = false;
+		$scope.message = false;
+		$scope.selectedBool = true;
 
 	
 		// Run UI update code every 10ms

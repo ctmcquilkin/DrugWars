@@ -108,6 +108,29 @@ a:hover, a:focus {
 	padding: 10px;
 	text-align: center;
 	background: #efecd9;
+  cursor: pointer;
+}
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.check-element {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
 }
 
 .MapContainer .topBoxContainer {
@@ -179,6 +202,14 @@ a:hover, a:focus {
 #coneyIsland:hover {
 	fill: #ffdbd5;
 }
+.noHover {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+/*disabled {
+  pointer-events: none !important;
+  cursor: default !important;
+}*/
 
 .blinking-cursor {
   font-weight: 400;
