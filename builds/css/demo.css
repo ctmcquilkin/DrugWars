@@ -1,0 +1,256 @@
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after {display: table;  content: ''; }
+.clearfix:after { clear: both; }
+
+body {
+	font-family: "Avenir Next", Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+	color: #444;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	outline: none;
+	color: #63f8d3;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #57d8b8;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+/* Content */
+.content {
+	padding: 3em 0;
+}
+
+.intro {
+	padding: 1em;
+	max-width: 1000px;
+	text-align: center;
+	font-size: 2em;
+}
+
+.module-section {
+	min-height: 100vh;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.module-section {
+	padding: 0 0 8em;
+	min-height: 100vh;
+	position: relative;
+}
+
+.module-section__title {
+	font-size: 4em;
+	font-weight: 700;
+	font-family: 'Allan', cursive;
+	font-family: 'Permanent Marker', cursive;
+/*	margin: 0.5em 0 5em;*/
+	flex: none;
+}
+
+.module-section a {
+	color: #333;
+}
+
+.module-section a:hover, 
+.module-section a:focus {
+	color: #000;
+}
+
+/* Header */
+#header {
+    top: 0px;
+    left:50%;
+    transform:translateX(-50%);
+    position: fixed;
+    background-color: grey;
+    width:100%;
+    z-index: 1;
+    text-align: center;
+    display: block;  
+}
+
+/*.bg {
+	width: 100%;
+}*/
+.MapContainer {
+  height: auto;
+  width: 50%;
+/*  margin: 0 auto;
+  position: relative;*/
+}
+.topSection {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+.topSection > div {
+	width: 50%;
+	padding: 10px;
+	text-align: center;
+	background: #efecd9;
+}
+
+.MapContainer .topBoxContainer {
+  position: absolute;
+  top: 100px;
+  left: 550px;
+  width: 200px;
+  height: 50px;
+  display: none;
+}
+#statenIsland {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#statenIsland:hover {
+	fill: #ffdbd5;
+}
+.l {
+	fill:#afac8a;
+	cursor: pointer;
+	pointer-events: none;
+}
+#brooklyn {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#brooklyn:hover {
+	fill: #ffdbd5;
+}
+#manhattan {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#manhattan:hover {
+	fill: #ffdbd5;
+}
+#theBronx {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#theBronx:hover {
+	fill: #ffdbd5;
+}
+#queens {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#queens:hover {
+	fill: #ffdbd5;
+}
+#jerseyCity {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#jerseyCity:hover {
+	fill: #ffdbd5;
+}
+#coneyIsland {
+	cursor: pointer;
+	fill: none;
+	pointer-events: all;
+}
+#coneyIsland:hover {
+	fill: #ffdbd5;
+}
+
+.blinking-cursor {
+  font-weight: 400;
+  font-size: 30px;
+  color: #b0ab8b;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #b0ab8b;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #b0ab8b;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #b0ab8b;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #b0ab8b;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+.bg-9 {
+/*	background: #000 url(../img/bricks.jpg) no-repeat center center;*/
+	background: #000 url(../img/ksg-back.jpg) no-repeat center center;
+	background-size: cover;
+	color: #b1ac8c;
+}
+
+@media screen and (max-width: 50em) {
+	.codrops-header {
+		padding: 3em 10% 4em;
+	}
+}
+
+@media screen and (max-width: 40em) {
+	.codrops-header h1 {
+		font-size: 2.8em;
+	}
+}
