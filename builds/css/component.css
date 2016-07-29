@@ -153,6 +153,7 @@
 	flex: none;
 	margin: auto 1em 1em;
 	padding: 1.25em 2em;
+	min-width: 90%;
 	color: #fff;
 	background: #382628;
 	letter-spacing: 2px;
