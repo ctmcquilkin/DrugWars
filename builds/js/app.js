@@ -1,5 +1,5 @@
 var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
-    .controller('IncrementalCtrl', function($scope, $interval) {
+    .controller('IncrementalCtrl', ['$scope', '$interval', function($scope, $interval) {
 		// Basic variable declaration - keep track of how many of each
 		// item we currently own, and how much the new ones should cost.
 		$scope.numCash = 2000;
@@ -52,15 +52,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.hashishCost = 1100;
 		$scope.peyoteCost = 360;
 		$scope.cocaineCost = 23270;
-
-		// For disabling current sector on Map
-		var statenIslandRegion = angular.element(document).find('#statenIsland');
-		var bronxRegion = angular.element(document).find('#theBronx');
-		var brooklynRegion = angular.element(document).find('#brooklyn');
-		var jerseyRegion = angular.element(document).find('#jerseyCity');
-		var coneyRegion = angular.element(document).find('#coneyIsland');
-		var queensRegion = angular.element(document).find('#queens');
-		var manRegion = angular.element(document).find('#manhattan');
 	
 		$scope.newGame = function() {
 					$scope.numCash = 2000;
@@ -303,67 +294,67 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			$scope.numCash -= $scope.cocaineCost;
 		}
 
+		$scope.selectedId = 'Bronx';
+
 			$scope.jet = function (place) {
 				if ($scope.day < 31) {
 			   switch (place) {
 				  case 'Bronx':
 					  this.active = $scope.active;
-					  bronxRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.5;  // each location has a different market
+					  $scope.selectedId = 'Bronx';
 					  $scope.toggle();
 					  $scope.day++;
-					  console.log('clicked Bronx');
 					  break;
 				  case 'Brooklyn':
 					  this.active = $scope.active;
-					  console.log(brooklynRegion)
-					  brooklynRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.2;
+					  $scope.selectedId = 'Brooklyn';
 					  $scope.toggle();
 					  $scope.day++;
 					  break;
 				  case 'Jersey City':
 					  this.active = $scope.active;
-					  jerseyRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 0.98;
+					  $scope.selectedId = 'Jersey City';
 					  $scope.toggle();
 					  $scope.day++;
 					  break;
 				  case 'Coney Island':
 					  this.active = $scope.active;
-					  coneyRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.3;
+					  $scope.selectedId = 'Coney Island';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
 				  case 'Queens':
 					  this.active = $scope.active;
-					  queensRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.llocationCoEfficient = 0.99;
+					  $scope.selectedId = 'Queens';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
 				  case 'Manhattan':
 					  this.active = $scope.active;
-					  manRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 2.4;
+					  $scope.selectedId = 'Manhattan';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
 				  case 'Shaolin':
 					  this.active = $scope.active;
-					  statenIslandRegion.addClass('noHover');
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.4;
+					  $scope.selectedId = 'Shaolin';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -403,4 +394,28 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			$scope.cocaineCost = Math.ceil(23270 * $scope.locationCoEfficient);
 
 		}, 10);
-    });
+    }])
+.directive('svgMap', ['$compile', function ($compile) {
+    return {
+        restrict: 'A',
+        templateUrl: 'img/Map.svg',
+        link: function (scope, element, attrs) {
+            
+        }
+    }
+}])
+// .directive('region', ['$compile', function ($compile) {
+//     return {
+//         restrict: 'A',
+//         scope: true,
+//         link: function ($scope, element, attrs) {
+//             $scope.elementId = element.attr("id");
+//             $scope.regionClick = function () {
+//                 alert(scope.elementId);
+//             };
+//             element.attr("ng-click", "regionClick()");
+//             element.removeAttr("region");
+// 						$compile(element)(scope);
+//         }
+//     }
+// }]);
