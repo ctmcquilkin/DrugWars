@@ -39,9 +39,9 @@
 
             <div class="module module--drugWars">
                 <div class="module__item market__item--featured">
-                    <h3 class="module__title">Drugs Available</h3>
-                    <p class="module__sentence">{{currentLocation}} Drug Market</p>
-                    <div class="module__price"><span class="module__currency">$</span>1845<span class="module__period">MDMA</span></div>
+                    <h3 class="module__title">{{currentLocation}} Drug Market</h3>
+                    <p class="module__sentence">Select a drug to buy</p>
+                    <div class="module__price"><span class="module__currency">$</span><span ng-bind="drug.value">25</span><span class="module__period" ng-bind="drug.name">{{drug.name}}</span></div>
                 <form name="buyForm">
 			            <label>
 			              <input type="radio" ng-model="drug" ng-value="Shrooms" ng-disabled="shroomCost > numCash">
@@ -86,7 +86,7 @@
 			            <tt>drug name = {{drug.name}}</tt><br/>
 			            <tt>drug cost = {{drug.value}}</tt><br/> -->
 			            <button id="buy-button" class="module__action"
-			                              ng-click="buy(drug.name)">Buy 1 {{drug.name}} @ {{drug.value | currency}}</button>
+			                              ng-click="buy(drug.name)">Buy 1</button>
 			           </form>
                 </div>
                 <div class="module__item module__item--featured">
