@@ -42,53 +42,63 @@
                     <h3 class="module__title">{{currentLocation}} Drug Market</h3>
                     <p class="module__sentence">Select a drug to buy</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToBuy.value">25</span><span class="module__period" ng-bind="drugToBuy.name">{{drugToBuy.name}}</span></div>
+<!--                 <form name="buyForm" class="control-group">
+			            <label ng-repeat="drug in Market" class="control control--radio">{{drug.name}} {{drug.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="{{drug.id}}" ng-disabled="{{drug.value}} > user.Stats.numCash">
+			              <div class="control__indicator"></div>
+			            </label>
+			            <tt>object = {{drugToBuy | json}}</tt><br/> // diagnostic stuff
+			            <tt>drug name = {{drugToBuy.name}}</tt><br/>
+			            <tt>drug cost = {{drugToBuy.value}}</tt><br/>
+			            <button id="buy-button" class="module__action"
+			                              ng-click="buy(drugToBuy.name)">Buy 1</button> -->
                 <form name="buyForm" class="control-group">
-			            <label class="control control--radio">Shrooms {{Shrooms.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Shrooms" ng-disabled="Shrooms.value > user.Stats.numCash">
+			            <label class="control control--radio">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Shrooms" ng-disabled="Market.Shrooms.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">PCP {{PCP.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="PCP" ng-disabled="PCP.value > user.Stats.numCash">
+			            <label class="control control--radio">PCP {{Market.PCP.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.PCP" ng-disabled="Market.PCP.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Speed {{Speed.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Speed" ng-disabled="Speed.value > user.Stats.numCash">
+			            <label class="control control--radio">Speed {{Market.Speed.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Speed" ng-disabled="Market.Speed.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Ludes {{Ludes.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Ludes" ng-disabled="Ludes.value > user.Stats.numCash"  ng-checked="drugToBuy.name == 'Ludes'">
+			            <label class="control control--radio">Ludes {{Market.Ludes.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Ludes" ng-disabled="Market.Ludes.value > user.Stats.numCash"  ng-checked="drugToBuy.name == 'Ludes'">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Acid {{Acid.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Acid" ng-disabled="Acid.value > user.Stats.numCash">
+			            <label class="control control--radio">Acid {{Market.Acid.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Acid" ng-disabled="Market.Acid.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Weed {{Weed.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Weed" ng-disabled="Weed.value > user.Stats.numCash">
+			            <label class="control control--radio">Weed {{Market.Weed.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Weed" ng-disabled="Market.Weed.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Heroin {{Heroin.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Heroin" ng-disabled="Heroin.value > user.Stats.numCash">
+			            <label class="control control--radio">Heroin {{Market.Heroin.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Heroin" ng-disabled="Market.Heroin.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Opium {{Opium.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Opium" ng-disabled="Opium.value > user.Stats.numCash">
+			            <label class="control control--radio">Opium {{Market.Opium.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Opium" ng-disabled="Market.Opium.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">MDMA {{MDMA.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="MDMA" ng-disabled="MDMA.value > user.Stats.numCash">
+			            <label class="control control--radio">MDMA {{Market.MDMA.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDMA" ng-disabled="Market.MDMA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Hashish {{Hashish.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Hashish" ng-disabled="Hashish.value > user.Stats.numCash">
+			            <label class="control control--radio">Hashish {{Market.Hashish.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Hashish" ng-disabled="Market.Hashish.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Peyote {{Peyote.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Peyote" ng-disabled="Peyote.value > user.Stats.numCash">
+			            <label class="control control--radio">Peyote {{Market.Peyote.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Peyote" ng-disabled="Market.Peyote.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Cocaine {{Cocaine.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Cocaine" ng-disabled="Cocaine.value > user.Stats.numCash">
+			            <label class="control control--radio">Cocaine {{Market.Cocaine.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Cocaine" ng-disabled="Market.Cocaine.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label></br>
 <!-- 			            <tt>object = {{drugToBuy | json}}</tt><br/> // diagnostic stuff
