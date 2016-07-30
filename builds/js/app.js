@@ -349,19 +349,19 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  $scope.toggle();
 					  $scope.day++;
 					  break;
-				  case 'Jersey City':
+				  case 'JC':
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 0.98;
-					  $scope.selectedId = 'Jersey City';
+					  $scope.selectedId = 'JC';
 					  $scope.toggle();
 					  $scope.day++;
 					  break;
-				  case 'Coney Island':
+				  case 'Coney Is.':
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.3;
-					  $scope.selectedId = 'Coney Island';
+					  $scope.selectedId = 'Coney Is.';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -375,11 +375,11 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
 					  break;
-				  case 'Manhattan':
+				  case 'The City':
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 2.4;
-					  $scope.selectedId = 'Manhattan';
+					  $scope.selectedId = 'The City';
 					  $scope.toggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
