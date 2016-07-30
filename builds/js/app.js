@@ -11,7 +11,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.currentLocation = 'Bronx';
 		$scope.locationCoEfficient = 1;
 		$scope.drugToBuy ={ name : "Ludes", value : 25 }
-		console.log($scope.drugToBuy);
 	
 		// Initial user drug inventory
 		$scope.numShrooms = 0;
@@ -27,6 +26,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.numPeyote = 0;
 		$scope.numCocaine = 0;
 
+		// Model for the market radio buttons and Initial market drug prices
     $scope.Shrooms = {
       "id": 1,
       "name" : "Shrooms",
@@ -87,20 +87,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
       "name" : "Cocaine",
       "value": 23270
     };
-	
-		// Initial market drug prices
-		$scope.shroomCost = 830;
-		$scope.PCPCost = 1570;
-		$scope.speedCost = 200;
-		$scope.ludesCost = 25;
-		$scope.acidCost = 3700;
-		$scope.weedCost = 690;
-		$scope.heroinCost = 10000;
-		$scope.opiumCost = 870;
-		$scope.mdmaCost = 4330;
-		$scope.hashishCost = 1100;
-		$scope.peyoteCost = 360;
-		$scope.cocaineCost = 23270;
 
 		// Prices the user paid for their inventory:
 		$scope.userShroomCost = 830;
@@ -155,18 +141,18 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					$scope.userCocaineCost = 23270;
 				
 					// Initial market drug prices
-					$scope.shroomCost = 830;
-					$scope.PCPCost = 1570;
-					$scope.speedCost = 200;
-					$scope.ludesCost = 25;
-						$scope.acidCost = 3700;
-					$scope.weedCost = 690;
-					$scope.heroinCost = 10000;
-					$scope.opiumCost = 870;
+					$scope.Shrooms.value = 830;
+					$scope.PCP.value = 1570;
+					$scope.Speed.value = 200;
+					$scope.Ludes.value = 25;
+						$scope.Acid.value = 3700;
+					$scope.Weed.value = 690;
+					$scope.Heroin.value = 10000;
+					$scope.Opium.value = 870;
 					$scope.mdmaCost = 4330;
 					$scope.hashishCost = 1100;
-					$scope.peyoteCost = 360;
-					$scope.cocaineCost = 23270;
+					$scope.Peyote.value = 360;
+					$scope.Cocaine.value = 23270;
 		}
 
 		// Decrease numCash and numDebt every time pay-debt is clicked
@@ -264,44 +250,44 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.buy = function(drug) {
 			   switch (drug) {
 				  case 'Shrooms':
-					  $scope.userShroomCost = $scope.shroomCost; // save purchase price
+					  $scope.userShroomCost = $scope.Shrooms.value; // save purchase price
 					  $scope.numShrooms++; // add to inventory
-					  $scope.numCash -= $scope.shroomCost; // Deduct cost
+					  $scope.numCash -= $scope.Shrooms.value; // Deduct cost
 					  break;
 				  case 'PCP':
-					  $scope.userPCPCost = $scope.PCPCost; // save purchase price
+					  $scope.userPCPCost = $scope.PCP.value; // save purchase price
 					  $scope.numPCP++; // add to inventory
-					  $scope.numCash -= $scope.PCPCost; // Deduct cost
+					  $scope.numCash -= $scope.PCP.value; // Deduct cost
 					  break;
 				  case 'Speed':
-					  $scope.userSpeedCost = $scope.speedCost; // save purchase price
+					  $scope.userSpeedCost = $scope.Speed.value; // save purchase price
 					  $scope.numSpeed++; // add to inventory
-					  $scope.numCash -= $scope.speedCost; // Deduct cost
+					  $scope.numCash -= $scope.Speed.value; // Deduct cost
 					  break;
 				  case 'Ludes':
-					  $scope.userLudesCost = $scope.ludesCost; // save purchase price
+					  $scope.userLudesCost = $scope.Ludes.value; // save purchase price
 					  $scope.numLudes++; // add to inventory
-					  $scope.numCash -= $scope.ludesCost; // Deduct cost
+					  $scope.numCash -= $scope.Ludes.value; // Deduct cost
 					  break;
 				  case 'Acid':
-					  $scope.userAcidCost = $scope.acidCost; // save purchase price
+					  $scope.userAcidCost = $scope.Acid.value; // save purchase price
 					  $scope.numAcid++; // add to inventory
-					  $scope.numCash -= $scope.acidCost; // Deduct cost
+					  $scope.numCash -= $scope.Acid.value; // Deduct cost
 					  break;
 				  case 'Weed':
-					  $scope.userWeedCost = $scope.weedCost; // save purchase price
+					  $scope.userWeedCost = $scope.Weed.value; // save purchase price
 					  $scope.numWeed++; // add to inventory
-					  $scope.numCash -= $scope.weedCost; // Deduct cost
+					  $scope.numCash -= $scope.Weed.value; // Deduct cost
 					  break;
 				  case 'Heroin':
-					  $scope.userHeroinCost = $scope.heroinCost; // save purchase price
+					  $scope.userHeroinCost = $scope.Heroin.value; // save purchase price
 					  $scope.numHeroin++; // add to inventory
-					  $scope.numCash -= $scope.heroinCost; // Deduct cost
+					  $scope.numCash -= $scope.Heroin.value; // Deduct cost
 					  break;
 				  case 'Opium':
-					  $scope.userOpiumCost = $scope.opiumCost; // save purchase price
+					  $scope.userOpiumCost = $scope.Opium.value; // save purchase price
 					  $scope.numOpium++; // add to inventory
-					  $scope.numCash -= $scope.opiumCost; // Deduct cost
+					  $scope.numCash -= $scope.Opium.value; // Deduct cost
 					  break;
 				  case 'MDMA':
 					  $scope.userMDMACost = $scope.mdmaCost; // save purchase price
@@ -314,14 +300,14 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  $scope.numCash -= $scope.hashishCost; // Deduct cost
 					  break;
 				  case 'Peyote':
-					  $scope.userPeyoteCost = $scope.peyoteCost; // save purchase price
+					  $scope.userPeyoteCost = $scope.Peyote.value; // save purchase price
 					  $scope.numPeyote++; // add to inventory
-					  $scope.numCash -= $scope.peyoteCost; // Deduct cost
+					  $scope.numCash -= $scope.Peyote.value; // Deduct cost
 					  break;
 				  case 'Cocaine':
-					  $scope.userCocaineCost = $scope.cocaineCost; // save purchase price
+					  $scope.userCocaineCost = $scope.Cocaine.value; // save purchase price
 					  $scope.numCocaine++; // add to inventory
-					  $scope.numCash -= $scope.cocaineCost; // Deduct cost
+					  $scope.numCash -= $scope.Cocaine.value; // Deduct cost
 					  break;
 				  default:
 					  console.log("unrecognized drug error");
@@ -414,18 +400,18 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$interval(function() {
 		
 			// Change cost of drugs based on location, using Math.ceil() to round up
-			$scope.shroomCost = Math.ceil(830 * $scope.locationCoEfficient);
-			$scope.PCPCost = Math.ceil(1570 * $scope.locationCoEfficient);
-			$scope.speedCost = Math.ceil(200 * $scope.locationCoEfficient);
-			$scope.ludesCost = Math.ceil(25 * $scope.locationCoEfficient);
-			$scope.acidCost = Math.ceil(3700 * $scope.locationCoEfficient);
-			$scope.weedCost = Math.ceil(690 * $scope.locationCoEfficient);
-			$scope.heroinCost = Math.ceil(10000 * $scope.locationCoEfficient);
-			$scope.opiumCost = Math.ceil(870 * $scope.locationCoEfficient);
-			$scope.mdaCost = Math.ceil(4330 * $scope.locationCoEfficient);
-			$scope.hashishCost = Math.ceil(1100 * $scope.locationCoEfficient);
-			$scope.peyoteCost = Math.ceil(360 * $scope.locationCoEfficient);
-			$scope.cocaineCost = Math.ceil(23270 * $scope.locationCoEfficient);
+			$scope.Shrooms.value = Math.ceil(830 * $scope.locationCoEfficient); 
+			$scope.PCP.value = Math.ceil(1570 * $scope.locationCoEfficient);
+			$scope.Speed.value = Math.ceil(200 * $scope.locationCoEfficient);
+			$scope.Ludes.value = Math.ceil(25 * $scope.locationCoEfficient);
+			$scope.Acid.value = Math.ceil(3700 * $scope.locationCoEfficient);
+			$scope.Weed.value = Math.ceil(690 * $scope.locationCoEfficient);
+			$scope.Heroin.value = Math.ceil(10000 * $scope.locationCoEfficient);
+			$scope.Opium.value = Math.ceil(870 * $scope.locationCoEfficient);
+			$scope.MDMA.value = Math.ceil(4330 * $scope.locationCoEfficient);
+			$scope.Hashish.value = Math.ceil(1100 * $scope.locationCoEfficient);
+			$scope.Peyote.value = Math.ceil(360 * $scope.locationCoEfficient);
+			$scope.Cocaine.value = Math.ceil(23270 * $scope.locationCoEfficient);
 
 		}, 10);
     }])
