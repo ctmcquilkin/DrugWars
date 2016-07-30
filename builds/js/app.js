@@ -11,6 +11,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.currentLocation = 'Bronx';
 		$scope.locationCoEfficient = 1;
 		$scope.drugToBuy ={ name : "Ludes", value : 25 }
+		console.log($scope.drugToBuy);
 	
 		// Initial user drug inventory
 		$scope.numShrooms = 0;
