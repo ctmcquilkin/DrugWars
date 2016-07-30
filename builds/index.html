@@ -44,51 +44,51 @@
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToBuy.value">25</span><span class="module__period" ng-bind="drugToBuy.name">{{drugToBuy.name}}</span></div>
                 <form name="buyForm" class="control-group">
 			            <label class="control control--radio">Shrooms {{Shrooms.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Shrooms" ng-disabled="Shrooms.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Shrooms" ng-disabled="Shrooms.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">PCP {{PCP.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="PCP" ng-disabled="PCP.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="PCP" ng-disabled="PCP.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Speed {{Speed.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Speed" ng-disabled="Speed.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Speed" ng-disabled="Speed.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Ludes {{Ludes.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Ludes" ng-disabled="Ludes.value > numCash"  ng-checked="drugToBuy.name == 'Ludes'">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Ludes" ng-disabled="Ludes.value > user.Stats.numCash"  ng-checked="drugToBuy.name == 'Ludes'">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Acid {{Acid.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Acid" ng-disabled="Acid.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Acid" ng-disabled="Acid.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Weed {{Weed.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Weed" ng-disabled="Weed.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Weed" ng-disabled="Weed.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Heroin {{Heroin.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Heroin" ng-disabled="Heroin.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Heroin" ng-disabled="Heroin.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Opium {{Opium.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Opium" ng-disabled="Opium.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Opium" ng-disabled="Opium.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">MDMA {{MDMA.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="MDMA" ng-disabled="MDMA.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="MDMA" ng-disabled="MDMA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Hashish {{Hashish.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Hashish" ng-disabled="Hashish.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Hashish" ng-disabled="Hashish.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Peyote {{Peyote.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Peyote" ng-disabled="Peyote.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Peyote" ng-disabled="Peyote.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio">Cocaine {{Cocaine.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Cocaine" ng-disabled="Cocaine.value > numCash">
+			              <input type="radio" ng-model="drugToBuy" ng-value="Cocaine" ng-disabled="Cocaine.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label></br>
 <!-- 			            <tt>object = {{drugToBuy | json}}</tt><br/> // diagnostic stuff
@@ -111,123 +111,71 @@
 	                        </button>
                         </li>
                     </ul>
-<!--                 <form name="sellForm">
-			            <label ng-hide="!numShrooms">
-			              <input type="radio" ng-model="drugToSell" ng-value="Shrooms">
-			              Shrooms: {{numShrooms}} Paid {{userShroomCost | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numPCP">
-			              <input type="radio" ng-model="drugToSell" ng-value="PCP">
-			              PCP: {{numPCP}} Paid {{userPCP.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numSpeed">
-			              <input type="radio" ng-model="drugToSell" ng-value="Speed">
-			              Speed: {{numSpeed}} Paid {{userSpeed.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numLudes">
-			              <input type="radio" ng-model="drugToSell" ng-value="Ludes">
-			              Ludes: {{numLudes}} Paid {{userLudes.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numAcid">
-			              <input type="radio" ng-model="drugToSell" ng-value="Acid">
-			              Acid: {{numAcid}} Paid {{userAcid.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numWeed">
-			              <input type="radio" ng-model="drugToSell" ng-value="Weed">
-			              Weed: {{numWeed}} Paid {{userWeed.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numHeroin">
-			              <input type="radio" ng-model="drugToSell" ng-value="Heroin">
-			              Heroin: {{numHeroin}} Paid {{userHeroin.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numOpium">
-			              <input type="radio" ng-model="drugToSell" ng-value="Opium">
-			              Opium: {{numOpium}} Paid {{userOpium.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numMDMA">
-			              <input type="radio" ng-model="drugToSell" ng-value="MDMA">
-			              MDMA: {{numMDMA}} Paid {{userMDMA.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numHashish">
-			              <input type="radio" ng-model="drugToSell" ng-value="Hashish">
-			              Hashish: {{numHashish}} Paid {{userHashish.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numPeyote">
-			              <input type="radio" ng-model="drugToSell" ng-value="Peyote">
-			              Peyote: {{numPeyote}} Paid {{userPeyote.value | currency:"$":0}}
-			            </label><br/>
-			            <label ng-hide="!numCocaine">
-			              <input type="radio" ng-model="drugToSell" ng-value="Cocaine">
-			              Cocaine: {{numCocaine}} Paid {{userCocaine.value | currency:"$":0}}
-			            </label><br/>
-<!-- 			            <tt>object = {{drugToSell | json}}</tt><br/> // diagnostic stuff
-			            <tt>drug name = {{drugToSell.name}}</tt><br/>
-			            <tt>drug cost = {{drugToSell.value}}</tt><br/> -->
 			            <button id="sell-button" class="module__action"
 			                              ng-click="sell(drugToSell.name)">Sell 1</button>
 			           </form>
-<!--                       <h2 ng-hide="!numShrooms">Shrooms: 
-                        <span id="shroom-count">{{numShrooms}} Paid {{userShroomCost}}</span>
-      @                  <button id="sell-shrooms"
-                                ng-click="sellShrooms(numShrooms, shroomCost)">Sell - {{userShroomCost | currency:"$":0}}
+                      <h2 ng-hide="!user.Shrooms.numShrooms">Shrooms: 
+                        <span id="shroom-count">{{user.Shrooms.numShrooms}} Paid {{user.Shrooms.userShroomCost}}</span>
+                        <button id="sell-shrooms"
+                                ng-click="sellShrooms(user.Shrooms.numShrooms, shroomCost)">Sell - {{user.Shrooms.userShroomCost | currency:"$":0}}
                         </button>
-                      </h2> -->
-                      <h2 ng-hide="!numPCP">PCP: 
-                        <span id="pcp-count">{{numPCP}} Paid {{userPCP.value | currency:"$":0}}</span>
+                      </h2>
+                      <h2 ng-hide="!user.PCP.numPCP">PCP: 
+                        <span id="pcp-count">{{user.PCP.numPCP}} Paid {{user.PCP.userPCPCost | currency:"$":0}}</span>
                         <button id="sell-PCP"
-                                ng-click="sellPCP(numPCP, PCP.value)">Sell PCP Paid {{userPCP.value | currency:"$":0}}
+                                ng-click="sellPCP(user.PCP.numPCP, PCP.value)">Sell PCP Paid {{user.PCP.userPCPCost | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numSpeed">Speed: 
-                        <span id="speed-count">{{numSpeed}} Paid {{userSpeed.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Speed.numSpeed">Speed: 
+                        <span id="speed-count">{{user.Speed.numSpeed}} Paid {{user.Speed.userSpeedCost | currency:"$":0}}</span>
                         <button id="sell-Speed"
-                                ng-click="sellSpeed(numSpeed, Speed.value)">Sell - {{userSpeed.value | currency:"$":0}}
+                                ng-click="sellSpeed(user.Speed.numSpeed, Speed.value)">Sell - {{user.Speed.userSpeedCost | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numLudes">Ludes: 
-                        <span id="ludes-count">{{numLudes}} Paid {{userLudes.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Ludes.numLudes">Ludes: 
+                        <span id="ludes-count">{{user.Ludes.numLudes}} Paid {{user.Ludes.userLudesCost | currency:"$":0}}</span>
                         <button id="sell-Ludes"
-                                ng-click="sellLudes(numLudes, Ludes.value)">Sell - {{userLudes.value | currency:"$":0}}
+                                ng-click="sellLudes(user.Ludes.numLudes, Ludes.value)">Sell - {{user.Ludes.userLudesCost | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numAcid">Acid: <span id="acid-count">{{numAcid}} Paid {{userAcid.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Acid.numAcid">Acid: <span id="acid-count">{{user.Acid.numAcid}} Paid {{user.Acid.userAcidCost | currency:"$":0}}</span>
                         <button id="sell-Acid"
-                                ng-click="sellAcid(numAcid, Acid.value)">Sell - {{userAcid.value | currency:"$":0}}
+                                ng-click="sellAcid(user.Acid.numAcid, Acid.value)">Sell - {{Acid.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numWeed">Weed: <span id="weed-count">{{numWeed}} Paid {{userWeed.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.numWeed">Weed: <span id="weed-count">{{user.numWeed}} Paid {{user.Weed.userWeedCost | currency:"$":0}}</span>
                         <button id="sell-Weed"
-                                ng-click="sellWeed(numWeed, Weed.value)">Sell - {{userWeed.value | currency:"$":0}}
+                                ng-click="sellWeed(user.numWeed, Weed.value)">Sell - {{Weed.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numHeroin">Heroin: <span id="heroin-count">{{numHeroin}} Paid {{userHeroin.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Heroin.numHeroin">Heroin: <span id="heroin-count">{{user.Heroin.numHeroin}} Paid {{user.Heroin.userHeroinCost | currency:"$":0}}</span>
                         <button id="sell-Heroin"
-                                ng-click="sellHeroin(numHeroin, Heroin.value)">Sell - {{userHeroin.value | currency:"$":0}}
+                                ng-click="sellHeroin(user.Heroin.numHeroin, Heroin.value)">Sell - {{Heroin.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numOpium">Opium: <span id="opium-count">{{numOpium}} Paid {{userOpium.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Opium.numOpium">Opium: <span id="opium-count">{{user.Opium.numOpium}} Paid {{user.Opium.userOpiumCost | currency:"$":0}}</span>
                         <button id="sell-Opium"
-                                ng-click="sellOpium(numOpium, Opium.value)">Sell - {{userOpium.value | currency:"$":0}}
+                                ng-click="sellOpium(user.Opium.numOpium, Opium.value)">Sell - {{Opium.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numMDA">MDA: <span id="mda-count">{{numMDA}} Paid {{userMDACost | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.MDMA.numMDMA">MDMA: <span id="mda-count">{{user.MDMA.numMDMA}} Paid {{user.MDMA.userMDMACost | currency:"$":0}}</span>
                         <button id="sell-MDA"
-                                ng-click="sellMDA(numMDA, mdaCost)">Sell - {{userMDACost | currency:"$":0}}
+                                ng-click="sellMDA(user.MDMA.numMDMA, MDMA.value)">Sell - {{MDMA.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numHashish">Hashish: <span id="hashish-count">{{numHashish}} Paid {{userHashish.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Hashish.numHashish">Hashish: <span id="hashish-count">{{user.Hashish.numHashish}} Paid {{user.Hashish.userHashishCost | currency:"$":0}}</span>
                         <button id="sell-Hashish"
-                                ng-click="sellHashish(numHashish, Hashish.value)">Sell - {{userHashish.value | currency:"$":0}}
+                                ng-click="sellHashish(user.Hashish.numHashish, Hashish.value)">Sell - {{Hashish.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numPeyote">Peyote: <span id="peyote-count">{{numPeyote}} Paid {{userPeyote.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.numPeyote">Peyote: <span id="peyote-count">{{user.numPeyote}} Paid {{user.Peyote.userPeyoteCost | currency:"$":0}}</span>
                         <button id="sell-Peyote"
-                                ng-click="sellPeyote(numPeyote, Peyote.value)">Sell - {{userPeyote.value | currency:"$":0}}
+                                ng-click="sellPeyote(user.numPeyote, Peyote.value)">Sell - {{Peyote.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!numCocaine">Cocaine: <span id="cocaine-count">{{numCocaine}} Paid {{userCocaine.value | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.Cocaine.numCocaine">Cocaine: <span id="cocaine-count">{{user.Cocaine.numCocaine}} Paid {{user.Cocaine.userCocaineCost | currency:"$":0}}</span>
                         <button id="sell-Cocaine"
-                                ng-click="sellCocaine(numPeyote, Cocaine.value)">Sell - {{userCocaine.value | currency:"$":0}}
+                                ng-click="sellCocaine(user.numPeyote, Cocaine.value)">Sell - {{Cocaine.value | currency:"$":0}}
                         </button>
                       </h2>
 
@@ -241,13 +189,13 @@
                 <div class="module__item debt__item--featured">
                     <h3 class="module__title">Game Stats</h3>
                     <p class="module__sentence">Day {{day}}</p>
-                    <div id="debt-count" class="module__price"><span class="module__currency">$</span>{{numDebt}}<span class="module__period">Debt</span></div>
+                    <div id="debt-count" class="module__price"><span class="module__currency">$</span>{{user.Stats.numDebt}}<span class="module__period">Debt</span></div>
 
                     <ul class="module__feature-list">
-                        <li id="cash-count" class="module__feature">Cash: {{numCash | currency:"$":0}}</li>
+                        <li id="cash-count" class="module__feature">Cash: {{user.Stats.numCash | currency:"$":0}}</li>
                         <li class="module__feature">Bank Balance: $0</li>
-                        <li class="module__feature">Health: {{health}}</li>
-                        <li class="module__feature">Guns: {{guns}}</li>
+                        <li class="module__feature">Health: {{user.Stats.numHealth}}</li>
+                        <li class="module__feature">Guns: {{user.Stats.numGuns}}</li>
                     </ul>
                     <button id="pay-debt" class="module__action" ng-click="payDebt()">Repay Debt</button>
                 </div>
