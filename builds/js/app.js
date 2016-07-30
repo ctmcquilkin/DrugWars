@@ -69,69 +69,11 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			      value : 23270
 			      },
 		}
-		$scope.drugToBuy ={ "name" : "Ludes", value : 25 } // initial buy radio button selection
-		console.log(typeof($scope.Market.Shrooms.name));
-		console.log($scope.Market.Shrooms.name);
-    // $scope.Shrooms = {
-    //   "id": 1,
-    //   "name" : "Shrooms",
-    //   "value": 830
-    // };
-    // $scope.PCP = {
-    //   "id": 2,
-    //   "name" : "PCP",
-    //   "value": 1570
-    // };
-    // $scope.Speed = {
-    //   "id": 3,
-    //   "name" : "Speed",
-    //   "value": 200
-    // };
-    // $scope.Ludes = {
-    //   "id": 4,
-    //   "name" : "Ludes",
-    //   "value": 25
-    // };
-    // $scope.Acid = {
-    //   "id": 5,
-    //   "name" : "Acid",
-    //   "value": 3700
-    // };
-    // $scope.Weed = {
-    //   "id": 6,
-    //   "name" : "Weed",
-    //   "value": 690
-    // };
-    // $scope.Heroin = {
-    //   "id": 7,
-    //   "name" : "Heroin",
-    //   "value": 10000
-    // };
-    // $scope.Opium = {
-    //   "id": 8,
-    //   "name" : "Opium",
-    //   "value": 870
-    // };
-    // $scope.MDMA = {
-    //   "id": 9,
-    //   "name" : "MDMA",
-    //   "value": 4330
-    // };
-    // $scope.Hashish = {
-    //   "id": 10,
-    //   "name" : "Hashish",
-    //   "value": 1100
-    // };
-    // $scope.Peyote = {
-    //   "id": 11,
-    //   "name" : "Peyote",
-    //   "value": 360
-    // };
-    // $scope.Cocaine = {
-    //   "id": 12,
-    //   "name" : "Cocaine",
-    //   "value": 23270
-    // };
+		$scope.drugToBuy = { 
+			      id : 4,
+			      name : "Ludes",
+			      value : 25
+		} // initial buy radio button selection
 
 		// Object to keep track of how many of each item we currently own, and how much we paid.
 		// We make a copy of it so it's easier to discard when there's a new game.
@@ -307,6 +249,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 
 		// Buy Function: add purchase to inventory, deduct cost, change the price
 		$scope.buy = function(drug) {
+				 console.log(drug);
 			   switch (drug) {
 				  case 'Shrooms':
 					  $scope.user.Shrooms.userShroomCost = $scope.Market.Shrooms.value; // save purchase price

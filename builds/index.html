@@ -42,16 +42,6 @@
                     <h3 class="module__title">{{currentLocation}} Drug Market</h3>
                     <p class="module__sentence">Select a drug to buy</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToBuy.value">25</span><span class="module__period" ng-bind="drugToBuy.name">{{drugToBuy.name}}</span></div>
-<!--                 <form name="buyForm" class="control-group">
-			            <label ng-repeat="drug in Market" class="control control--radio">{{drug.name}} {{drug.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="{{drug.id}}" ng-disabled="{{drug.value}} > user.Stats.numCash">
-			              <div class="control__indicator"></div>
-			            </label>
-			            <tt>object = {{drugToBuy | json}}</tt><br/> // diagnostic stuff
-			            <tt>drug name = {{drugToBuy.name}}</tt><br/>
-			            <tt>drug cost = {{drugToBuy.value}}</tt><br/>
-			            <button id="buy-button" class="module__action"
-			                              ng-click="buy(drugToBuy.name)">Buy 1</button> -->
                 <form name="buyForm" class="control-group">
 			            <label class="control control--radio">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Shrooms" ng-disabled="Market.Shrooms.value > user.Stats.numCash">
@@ -113,7 +103,7 @@
                     <h3 class="module__title">Your Inventory</h3>
                     <p class="module__sentence">Select a drug to sell</p>
                     <div class="module__price"><span class="module__currency">$</span>0<span class="module__period">Nothing</span></div>
-                    <ul class="module__feature-list">
+<!--                     <ul class="module__feature-list">
                         <li class="module__feature" ng-hide="!numShrooms">
                         	<span id="shroom-count">{{numShrooms}}Shrooms Bought for {{userShroomCost}} / EACH</span>
 	                        <button id="sell-shrooms"  class="module__action"
@@ -123,7 +113,7 @@
                     </ul>
 			            <button id="sell-button" class="module__action"
 			                              ng-click="sell(drugToSell.name)">Sell 1</button>
-			           </form>
+			           </form> -->
                       <h2 ng-hide="!user.Shrooms.numShrooms">Shrooms: 
                         <span id="shroom-count">{{user.Shrooms.numShrooms}} Paid {{user.Shrooms.userShroomCost}}</span>
                         <button id="sell-shrooms"
@@ -178,7 +168,7 @@
                                 ng-click="sellHashish(user.Hashish.numHashish, Hashish.value)">Sell - {{Hashish.value | currency:"$":0}}
                         </button>
                       </h2>
-                      <h2 ng-hide="!user.numPeyote">Peyote: <span id="peyote-count">{{user.numPeyote}} Paid {{user.Peyote.userPeyoteCost | currency:"$":0}}</span>
+                      <h2 ng-hide="!user.numPeyote">Peyote: <span id="peyote-count">{{user.Peyote.numPeyote}} Paid {{user.Peyote.userPeyoteCost | currency:"$":0}}</span>
                         <button id="sell-Peyote"
                                 ng-click="sellPeyote(user.numPeyote, Peyote.value)">Sell - {{Peyote.value | currency:"$":0}}
                         </button>
