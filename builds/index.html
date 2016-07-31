@@ -19,12 +19,12 @@
 </head>
 
 <body ng-app >
-    <div class="container" ng-controller="IncrementalCtrl">
+    <div class="container" ng-controller="DrugWarsCtrl">
 <!--         <header id="header">
           <h1>Drug Wars</h1>
         </header> -->
         <section class="topSection">
-            <div class="left" ng-click="toggle()"><h3><span ng-show="mapOpen">Hide</span><span ng-show="!mapOpen">Show</span> Map</h3></div>
+            <div class="left" ng-click="mapToggle()"><h3><span ng-show="mapOpen">Hide</span><span ng-show="!mapOpen">Show</span> Map</h3></div>
             <div class="right" ng-click="newGame()"><h3>New Game</h3></div>
         </section>
         <section class="module-section bg-9">
@@ -37,7 +37,7 @@
       <div svg-map id="svg-map"></div>
 </div> <!-- End Map Container -->
 
-            <div class="module module--drugWars">
+            <div class="module module--drugWars" ng-controller="BuyCtrl">
                 <div class="module__item market__item--featured">
                     <h3 class="module__title">{{currentLocation}} Drug Market</h3>
                     <p class="module__sentence">Select a drug to buy</p>
@@ -94,73 +94,70 @@
 <!-- 			            <tt>object = {{drugToBuy | json}}</tt><br/> // diagnostic stuff
 			            <tt>drug name = {{drugToBuy.name}}</tt><br/>
 			            <tt>drug cost = {{drugToBuy.value}}</tt><br/> -->
-			            <button id="buy-button" class="module__action"
+			            <button id="buy-button" class="module__action"  ng-disabled="drugToBuy.value > user.Stats.numCash"
 			                              ng-click="buy(drugToBuy.name)">Buy 1</button>
 			           </form>
                 </ul>
                 </div>
-                <div class="module__item module__item--featured">
+                <div class="module__item module__item--featured" ng-controller="SellCtrl">
                     <h3 class="module__title">Your Inventory</h3>
                     <p class="module__sentence">Select a drug to sell</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToSell.value">25</span><span class="module__period" ng-bind="drugToSell.name">{{drugToSell.name}}</span></div>
-		                <form name="sellForm" class="control-group">
-
-<!-- I would like to use an ng-repeat for inventory but It doesn't seen possible to show/hide -->
-<!-- 					            <label ng-repeat="(key, value) in user" class="control control--radio" ng-show="value">{{ value.count }} {{key}} Aquired for {{ value.userCost | currency:"$":0}}
-					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
-					              <div class="control__indicator"></div>
-					            </label> -->
-					            <label class="control control--radio" ng-show="user.Shrooms.count">{{ user.Shrooms.count }} Shroom(s) Aquired for {{ user.Shrooms.userCost | currency:"$":0}}
+		                <form>
+					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count">{{ user.inventory.Shrooms.count }} Shroom(s) Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.PCP.count">{{ user.PCP.count }} PCP(s) Aquired for {{ user.PCP.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.PCP.count">{{ user.inventory.PCP.count }} PCP(s) Aquired for {{ user.inventory.PCP.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.PCP">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Speed.count">{{ user.Speed.count }} Speed Aquired for {{ user.Speed.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Speed.count">{{ user.inventory.Speed.count }} Speed Aquired for {{ user.inventory.Speed.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Speed">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Ludes.count">{{ user.Ludes.count }} Ludes Aquired for {{ user.Ludes.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Ludes.count">{{ user.inventory.Ludes.count }} Ludes Aquired for {{ user.inventory.Ludes.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Ludes">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Acid.count">{{ user.Acid.count }} Acid Aquired for {{ user.Acid.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Acid.count">{{ user.inventory.Acid.count }} Acid Aquired for {{ user.inventory.Acid.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Acid">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Weed.count">{{ user.Weed.count }} Weed Aquired for {{ user.Weed.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Weed.count">{{ user.inventory.Weed.count }} Weed Aquired for {{ user.inventory.Weed.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Weed">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Heroin.count">{{ user.Heroin.count }} Heroin Aquired for {{ user.Heroin.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Heroin.count">{{ user.inventory.Heroin.count }} Heroin Aquired for {{ user.inventory.Heroin.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Heroin">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Opium.count">{{ user.Opium.count }} Opium Aquired for {{ user.Opium.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Opium.count">{{ user.inventory.Opium.count }} Opium Aquired for {{ user.inventory.Opium.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Opium">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.MDMA.count">{{ user.MDMA.count }} MDMA Aquired for {{ user.MDMA.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.MDMA.count">{{ user.inventory.MDMA.count }} MDMA Aquired for {{ user.inventory.MDMA.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.MDMA">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Hashish.count">{{ user.Hashish.count }} Hashish Aquired for {{ user.Hashish.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Hashish.count">{{ user.inventory.Hashish.count }} Hashish Aquired for {{ user.inventory.Hashish.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Hashish">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Peyote.count">{{ user.Peyote.count }} Peyote Aquired for {{ user.Peyote.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Peyote.count">{{ user.inventory.Peyote.count }} Peyote Aquired for {{ user.inventory.Peyote.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Peyote">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.Cocaine.count">{{ user.Cocaine.count }} Cocaine Aquired for {{ user.Cocaine.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Cocaine.count">{{ user.inventory.Cocaine.count }} Cocaine Aquired for {{ user.inventory.Cocaine.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Cocaine">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <button id="buy-button" class="module__action" 
-					                              ng-click="sellShrooms(user.Shrooms.numShrooms, shroomCost)">Sell 1</button>
-					           </form>
+<!-- 			            <tt>object = {{drugToSell | json}}</tt><br/> // diagnostic stuff
+			            <tt>drug name = {{drugToSell.name}}</tt><br/>
+			            <tt>drug cost = {{drugToSell.value}}</tt><br/> -->
+			            <button id="sell-button" class="module__action"
+			                              ng-click="sell(drugToSell.name, drugToSell.count, drugToSell.value)" ng-show="user.Stats.inventoryTotal">Sell 1</button>
+			           </form>
                 </div>
                 <div class="module__item debt__item--featured">
                     <h3 class="module__title">Game Stats</h3>
