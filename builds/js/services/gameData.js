@@ -115,7 +115,7 @@ drugWars.service('gameData', function(){
 					     Stats : { 
 					             'numCash'        : 2000,
 					             'numDebt'        : 5500,
-					             'numHealth'      : 0,
+					             'numHealth'      : 100,
 					             'numGuns'        : 0,
 					             'inventoryTotal' : 0
 					     }

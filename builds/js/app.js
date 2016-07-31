@@ -124,7 +124,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 
 		// Decrease numCash and numDebt every time pay-debt is clicked
 		$scope.payDebt = function() {
-			$scope.numDebt--;
+			$scope.user.Stats.numDebt--;
 			$scope.user.Stats.numCash--;
 		}
 
