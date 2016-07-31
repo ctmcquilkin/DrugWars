@@ -278,12 +278,10 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			      count : 0
 		}
 		$scope.sell = function(drug, total, currentPrice) {
-					 // console.log(drug);
 				 	 console.log($scope.user.Stats.inventoryTotal);
 				 	 $scope.drugToSell = { name  : "Nothing", value : 0, count : 0 }
 				   switch (drug) {
 					  case 'Shrooms':
-					  	// console.log('Shrooms sold');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -291,7 +289,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'PCP':
-					  	// console.log('PCP Sold');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -299,7 +296,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Speed':
-					  	// console.log('Speed');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -307,7 +303,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Ludes':
-					  	// console.log('Ludes');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -315,7 +310,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Acid':
-					  	// console.log('Acid');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -323,7 +317,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Weed':
-					  	// console.log('Weed');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -331,7 +324,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Heroin':
-					  	// console.log('Heroin');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -339,7 +331,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'Opium':
-					  	// console.log('Opium');
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
@@ -347,16 +338,29 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 						  };
 						  break;
 					  case 'MDMA':
-					  	console.log('MDMA');
+							total = parseInt(total);
+							for (var i=0; i<total; i++) {
+								$scope.user.Stats.numCash += currentPrice;
+						  	$scope.user.inventory.MDMA.count--;
+						  };
 						  break;
 					  case 'Hashish':
-					  	console.log('Hashish');
+							total = parseInt(total);
+							for (var i=0; i<total; i++) {
+								$scope.user.Stats.numCash += currentPrice;
+						  	$scope.user.inventory.Hashish.count--;
 						  break;
 					  case 'Peyote':
-					  	console.log('Peyote');
+							total = parseInt(total);
+							for (var i=0; i<total; i++) {
+								$scope.user.Stats.numCash += currentPrice;
+						  	$scope.user.inventory.Peyote.count--;
 						  break;
 					  case 'Cocaine':
-					  	console.log('Cocaine');
+							total = parseInt(total);
+							for (var i=0; i<total; i++) {
+								$scope.user.Stats.numCash += currentPrice;
+						  	$scope.user.inventory.Cocaine.count--;
 						  break;
 					  default:
 						  console.log("unrecognized drug error");
