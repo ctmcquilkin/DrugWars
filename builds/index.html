@@ -102,89 +102,65 @@
                 <div class="module__item module__item--featured">
                     <h3 class="module__title">Your Inventory</h3>
                     <p class="module__sentence">Select a drug to sell</p>
-                    <div class="module__price"><span class="module__currency">$</span>0<span class="module__period">Nothing</span></div>
-<!--                     <ul class="module__feature-list">
-                        <li class="module__feature" ng-hide="!numShrooms">
-                        	<span id="shroom-count">{{numShrooms}}Shrooms Bought for {{userShroomCost}} / EACH</span>
-	                        <button id="sell-shrooms"  class="module__action"
-	                                ng-click="sellShrooms(numShrooms, shroomCost)">Sell - {{userShroomCost | currency:"$":0}}
-	                        </button>
-                        </li>
-                    </ul>
-			            <button id="sell-button" class="module__action"
-			                              ng-click="sell(drugToSell.name)">Sell 1</button>
-			           </form> -->
-                      <h2 ng-hide="!user.Shrooms.numShrooms">Shrooms: 
-                        <span id="shroom-count">{{user.Shrooms.numShrooms}} Paid {{user.Shrooms.userShroomCost}}</span>
-                        <button id="sell-shrooms"
-                                ng-click="sellShrooms(user.Shrooms.numShrooms, shroomCost)">Sell - {{user.Shrooms.userShroomCost | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.PCP.numPCP">PCP: 
-                        <span id="pcp-count">{{user.PCP.numPCP}} Paid {{user.PCP.userPCPCost | currency:"$":0}}</span>
-                        <button id="sell-PCP"
-                                ng-click="sellPCP(user.PCP.numPCP, PCP.value)">Sell PCP Paid {{user.PCP.userPCPCost | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Speed.numSpeed">Speed: 
-                        <span id="speed-count">{{user.Speed.numSpeed}} Paid {{user.Speed.userSpeedCost | currency:"$":0}}</span>
-                        <button id="sell-Speed"
-                                ng-click="sellSpeed(user.Speed.numSpeed, Speed.value)">Sell - {{user.Speed.userSpeedCost | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Ludes.numLudes">Ludes: 
-                        <span id="ludes-count">{{user.Ludes.numLudes}} Paid {{user.Ludes.userLudesCost | currency:"$":0}}</span>
-                        <button id="sell-Ludes"
-                                ng-click="sellLudes(user.Ludes.numLudes, Ludes.value)">Sell - {{user.Ludes.userLudesCost | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Acid.numAcid">Acid: <span id="acid-count">{{user.Acid.numAcid}} Paid {{user.Acid.userAcidCost | currency:"$":0}}</span>
-                        <button id="sell-Acid"
-                                ng-click="sellAcid(user.Acid.numAcid, Acid.value)">Sell - {{Acid.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.numWeed">Weed: <span id="weed-count">{{user.numWeed}} Paid {{user.Weed.userWeedCost | currency:"$":0}}</span>
-                        <button id="sell-Weed"
-                                ng-click="sellWeed(user.numWeed, Weed.value)">Sell - {{Weed.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Heroin.numHeroin">Heroin: <span id="heroin-count">{{user.Heroin.numHeroin}} Paid {{user.Heroin.userHeroinCost | currency:"$":0}}</span>
-                        <button id="sell-Heroin"
-                                ng-click="sellHeroin(user.Heroin.numHeroin, Heroin.value)">Sell - {{Heroin.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Opium.numOpium">Opium: <span id="opium-count">{{user.Opium.numOpium}} Paid {{user.Opium.userOpiumCost | currency:"$":0}}</span>
-                        <button id="sell-Opium"
-                                ng-click="sellOpium(user.Opium.numOpium, Opium.value)">Sell - {{Opium.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.MDMA.numMDMA">MDMA: <span id="mda-count">{{user.MDMA.numMDMA}} Paid {{user.MDMA.userMDMACost | currency:"$":0}}</span>
-                        <button id="sell-MDA"
-                                ng-click="sellMDA(user.MDMA.numMDMA, MDMA.value)">Sell - {{MDMA.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Hashish.numHashish">Hashish: <span id="hashish-count">{{user.Hashish.numHashish}} Paid {{user.Hashish.userHashishCost | currency:"$":0}}</span>
-                        <button id="sell-Hashish"
-                                ng-click="sellHashish(user.Hashish.numHashish, Hashish.value)">Sell - {{Hashish.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.numPeyote">Peyote: <span id="peyote-count">{{user.Peyote.numPeyote}} Paid {{user.Peyote.userPeyoteCost | currency:"$":0}}</span>
-                        <button id="sell-Peyote"
-                                ng-click="sellPeyote(user.numPeyote, Peyote.value)">Sell - {{Peyote.value | currency:"$":0}}
-                        </button>
-                      </h2>
-                      <h2 ng-hide="!user.Cocaine.numCocaine">Cocaine: <span id="cocaine-count">{{user.Cocaine.numCocaine}} Paid {{user.Cocaine.userCocaineCost | currency:"$":0}}</span>
-                        <button id="sell-Cocaine"
-                                ng-click="sellCocaine(user.numPeyote, Cocaine.value)">Sell - {{Cocaine.value | currency:"$":0}}
-                        </button>
-                      </h2>
+                    <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToSell.value">25</span><span class="module__period" ng-bind="drugToSell.name">{{drugToSell.name}}</span></div>
+		                <form name="sellForm" class="control-group">
 
-<!--                     <ul class="module__feature-list">
-                        <li class="module__feature">1 Acid Bought for $47 / each</li>
-                        <li class="module__feature">4 Heroin Bought for $6723 / each</li>
-                        <li class="module__feature">1 Weed Bought for $681 / each</li>
-                    </ul> -->
-<!--                     <button class="module__action">Sell Ludes Paid $10</button> -->
+<!-- I would like to use an ng-repeat for inventory but It doesn't seen possible to show/hide -->
+<!-- 					            <label ng-repeat="(key, value) in user" class="control control--radio" ng-show="value">{{ value.count }} {{key}} Aquired for {{ value.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
+					              <div class="control__indicator"></div>
+					            </label> -->
+					            <label class="control control--radio" ng-show="user.Shrooms.count">{{ user.Shrooms.count }} Shroom(s) Aquired for {{ user.Shrooms.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.PCP.count">{{ user.PCP.count }} PCP(s) Aquired for {{ user.PCP.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.PCP">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Speed.count">{{ user.Speed.count }} Speed Aquired for {{ user.Speed.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Speed">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Ludes.count">{{ user.Ludes.count }} Ludes Aquired for {{ user.Ludes.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Ludes">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Acid.count">{{ user.Acid.count }} Acid Aquired for {{ user.Acid.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Acid">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Weed.count">{{ user.Weed.count }} Weed Aquired for {{ user.Weed.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Weed">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Heroin.count">{{ user.Heroin.count }} Heroin Aquired for {{ user.Heroin.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Heroin">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Opium.count">{{ user.Opium.count }} Opium Aquired for {{ user.Opium.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Opium">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.MDMA.count">{{ user.MDMA.count }} MDMA Aquired for {{ user.MDMA.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.MDMA">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Hashish.count">{{ user.Hashish.count }} Hashish Aquired for {{ user.Hashish.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Hashish">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Peyote.count">{{ user.Peyote.count }} Peyote Aquired for {{ user.Peyote.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Peyote">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <label class="control control--radio" ng-show="user.Cocaine.count">{{ user.Cocaine.count }} Cocaine Aquired for {{ user.Cocaine.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.Cocaine">
+					              <div class="control__indicator"></div>
+					            </label>
+					            <button id="buy-button" class="module__action" 
+					                              ng-click="sellShrooms(user.Shrooms.numShrooms, shroomCost)">Sell 1</button>
+					           </form>
                 </div>
                 <div class="module__item debt__item--featured">
                     <h3 class="module__title">Game Stats</h3>

@@ -79,61 +79,66 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		// We make a copy of it so it's easier to discard when there's a new game.
 		$scope.initialUser = {
 	     Shrooms : { 
-	             'numShrooms' : 0,
-	             'userShroomCost' : 830
+	             'count' : 0,
+	             'userCost' : 830
 	     },
 	     PCP : { 
-	             'numPCP' : 0,
-	             'userPCPCost' : 1570
+	             'count' : 0,
+	             'userCost' : 1570
 	     },
 	     Speed : { 
-	             'numSpeed' : 0,
-	             'userSpeedCost' : 200
+	             'count' : 0,
+	             'userCost' : 200
 	     },
 	     Ludes : { 
-	             'numLudes' : 0,
-	             'userLudesCost' : 200
+	             'count' : 0,
+	             'userCost' : 200
 	     },
 	     Acid : { 
-	             'numAcid' : 0,
-	             'userAcidCost' : 3700
+	             'count' : 0,
+	             'userCost' : 3700
 	     },
 	     Weed : { 
-	             'numWeed' : 0,
-	             'userWeedCost' : 690
+	             'count' : 0,
+	             'userCost' : 690
 	     },
 	     Heroin : { 
-	             'numHeroin' : 0,
-	             'userHeroinCost' : 10000
+	             'count' : 0,
+	             'userCost' : 10000
 	     },
 	     Opium : { 
-	             'numOpium' : 0,
-	             'userOpiumCost' : 870
+	             'count' : 0,
+	             'userCost' : 870
 	     },
 	     MDMA : { 
-	             'numMDMA' : 0,
-	             'userMDMACost' : 4330
+	             'count' : 0,
+	             'userCost' : 4330
 	     },
 	     Hashish : { 
-	             'numHashish' : 0,
-	             'userHashishCost' : 1100
+	             'count' : 0,
+	             'userCost' : 1100
 	     },
 	     Peyote : { 
-	             'numPeyote' : 0,
-	             'userPeyoteCost' : 360
+	             'count' : 0,
+	             'userCost' : 360
 	     },
 	     Cocaine : { 
-	             'numCocaine' : 0,
-	             'userCocaineCost' : 23270
+	             'count' : 0,
+	             'userCost' : 23270
 	     },
 	     Stats : { 
-	             'numCash' : 2000,
-	             'numDebt' : 5500,
-	             'numHealth' : 0,
-	             'numGuns' : 0,
+	             'numCash'      : 2000,
+	             'numDebt'      : 5500,
+	             'numHealth'    : 0,
+	             'numGuns'      : 0,
 	     }
 		};
 
+		$scope.drugToSell = { 
+			      id : 4,
+			      name : "Nothing",
+			      value : 0
+		}  // variable to bind sell radio buttons
     // Create copy of user data below for each game
     $scope.user = angular.copy($scope.initialUser);
 	
@@ -252,63 +257,63 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 				 console.log(drug);
 			   switch (drug) {
 				  case 'Shrooms':
-					  $scope.user.Shrooms.userShroomCost = $scope.Market.Shrooms.value; // save purchase price
-					  $scope.user.Shrooms.numShrooms++; // add to inventory
+					  $scope.user.Shrooms.userCost = $scope.Market.Shrooms.value; // save purchase price
+					  $scope.user.Shrooms.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Shrooms.value; // Deduct cost
 					  break;
 				  case 'PCP':
-					  $scope.user.PCP.PCPCost = $scope.Market.PCP.value; // save purchase price
-					  $scope.user.PCP.numPCP++; // add to inventory
+					  $scope.user.PCP.userCost = $scope.Market.PCP.value; // save purchase price
+					  $scope.user.PCP.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.PCP.value; // Deduct cost
 					  break;
 				  case 'Speed':
-					  $scope.user.Speed.SpeedCost = $scope.Market.Speed.value; // save purchase price
-					  $scope.user.Speed.numSpeed++; // add to inventory
+					  $scope.user.Speed.userCost = $scope.Market.Speed.value; // save purchase price
+					  $scope.user.Speed.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Speed.value; // Deduct cost
 					  break;
 				  case 'Ludes':
-					  $scope.user.Ludes.LudesCost = $scope.Market.Ludes.value; // save purchase price
-					  $scope.user.Ludes.numLudes++; // add to inventory
+					  $scope.user.Ludes.userCost = $scope.Market.Ludes.value; // save purchase price
+					  $scope.user.Ludes.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Ludes.value; // Deduct cost
 					  break;
 				  case 'Acid':
-					  $scope.user.Acid.userAcidCost = $scope.Market.Acid.value; // save purchase price
-					  $scope.user.Acid.numAcid++; // add to inventory
+					  $scope.user.Acid.userCost = $scope.Market.Acid.value; // save purchase price
+					  $scope.user.Acid.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Acid.value; // Deduct cost
 					  break;
 				  case 'Weed':
-					  $scope.user.Weed.userWeedCost = $scope.Market.Weed.value; // save purchase price
-					  $scope.user.Weed.numWeed++; // add to inventory
+					  $scope.user.Weed.userCost = $scope.Market.Weed.value; // save purchase price
+					  $scope.user.Weed.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Weed.value; // Deduct cost
 					  break;
 				  case 'Heroin':
-					  $scope.user.Heroin.userHeroinCost = $scope.Market.Heroin.value; // save purchase price
-					  $scope.user.Heroin.numHeroin++; // add to inventory
+					  $scope.user.Heroin.userCost = $scope.Market.Heroin.value; // save purchase price
+					  $scope.user.Heroin.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Heroin.value; // Deduct cost
 					  break;
 				  case 'Opium':
-					  $scope.user.Opium.userOpiumCost = $scope.Market.Opium.value; // save purchase price
-					  $scope.user.Opium.numOpium++; // add to inventory
+					  $scope.user.Opium.userCost = $scope.Market.Opium.value; // save purchase price
+					  $scope.user.Opium.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Opium.value; // Deduct cost
 					  break;
 				  case 'MDMA':
-					  $scope.user.MDMA.userMDMACost = $scope.Market.mdmaCost; // save purchase price
-					  $scope.user.MDMA.numMDMA++; // add to inventory
-					  $scope.user.numCash -= $scope.Market.mdmaCost; // Deduct cost
+					  $scope.user.MDMA.userCost = $scope.Market.MDMA.value; // save purchase price
+					  $scope.user.MDMA.count++; // add to inventory
+					  $scope.user.numCash -= $scope.Market.MDMA.value; // Deduct cost
 					  break;
 				  case 'Hashish':
-					  $scope.user.Hashish.userHashishCost = $scope.Market.hashishCost; // save purchase price
-					  $scope.user.Hashish.numHashish++; // add to inventory
-					  $scope.user.numCash -= $scope.Market.hashishCost; // Deduct cost
+					  $scope.user.Hashish.userCost = $scope.Market.Hashish.value; // save purchase price
+					  $scope.user.Hashish.count++; // add to inventory
+					  $scope.user.numCash -= $scope.Market.Hashish.value; // Deduct cost
 					  break;
 				  case 'Peyote':
-					  $scope.user.Peyote.userPeyoteCost = $scope.Market.Peyote.value; // save purchase price
-					  $scope.user.Peyote.numPeyote++; // add to inventory
+					  $scope.user.Peyote.userCost = $scope.Market.Peyote.value; // save purchase price
+					  $scope.user.Peyote.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Peyote.value; // Deduct cost
 					  break;
 				  case 'Cocaine':
-					  $scope.user.Cocaine.userCocaineCost = $scope.Market.Cocaine.value; // save purchase price
-					  $scope.user.Cocaine.numCocaine++; // add to inventory
+					  $scope.user.Cocaine.userCost = $scope.Market.Cocaine.value; // save purchase price
+					  $scope.user.Cocaine.count++; // add to inventory
 					  $scope.user.numCash -= $scope.Market.Cocaine.value; // Deduct cost
 					  break;
 				  default:
