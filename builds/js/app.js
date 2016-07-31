@@ -4,6 +4,8 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.day = 1;
 		$scope.currentLocation = 'Bronx';
 		$scope.locationCoEfficient = 1;
+		$scope.mapOpen = false;
+		$scope.message = false;
 
 	
 		// Model for the market radio buttons and market drug prices
@@ -161,7 +163,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.5;  // each location has a different market
-					  $scope.selectedId = 'Bronx';
+					  $scope.currentLocation = 'Bronx';
 					  $scope.mapToggle();
 					  $scope.day++;
 					  break;
@@ -169,7 +171,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.2;
-					  $scope.selectedId = 'Brooklyn';
+					  $scope.currentLocation = 'Brooklyn';
 					  $scope.mapToggle();
 					  $scope.day++;
 					  break;
@@ -177,7 +179,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 0.98;
-					  $scope.selectedId = 'JC';
+					  $scope.currentLocation = 'JC';
 					  $scope.mapToggle();
 					  $scope.day++;
 					  break;
@@ -185,7 +187,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.3;
-					  $scope.selectedId = 'Coney Is.';
+					  $scope.currentLocation = 'Coney Is.';
 					  $scope.mapToggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -194,7 +196,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.llocationCoEfficient = 0.99;
-					  $scope.selectedId = 'Queens';
+					  $scope.currentLocation = 'Queens';
 					  $scope.mapToggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -203,7 +205,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 2.4;
-					  $scope.selectedId = 'The City';
+					  $scope.currentLocation = 'The City';
 					  $scope.mapToggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -212,7 +214,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 					  this.active = $scope.active;
 					  $scope.currentLocation = place;
 					  $scope.locationCoEfficient = 1.4;
-					  $scope.selectedId = 'Shaolin';
+					  $scope.currentLocation = 'Shaolin';
 					  $scope.mapToggle();
 					  console.log($scope.locationCoEfficient);
 					  $scope.day++;
@@ -229,9 +231,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.mapToggle = function() {
 			$scope.mapOpen =! $scope.mapOpen;
 		};
-		$scope.mapOpen = false;
-		$scope.message = false;
-		$scope.selectedBool = true;
 
 		$scope.totalInventory = function() {
 			total = 0;
@@ -247,8 +246,6 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 			$scope.numDebt--;
 			$scope.user.Stats.numCash--;
 		}
-	
-		$scope.selectedId = 'Bronx';
 
 		// Run UI update code every 10ms
 		$interval(function() {
@@ -349,18 +346,21 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
 						  	$scope.user.inventory.Hashish.count--;
+						  };
 						  break;
 					  case 'Peyote':
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
 						  	$scope.user.inventory.Peyote.count--;
+						  };
 						  break;
 					  case 'Cocaine':
 							total = parseInt(total);
 							for (var i=0; i<total; i++) {
 								$scope.user.Stats.numCash += currentPrice;
 						  	$scope.user.inventory.Cocaine.count--;
+						  };
 						  break;
 					  default:
 						  console.log("unrecognized drug error");
