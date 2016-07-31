@@ -280,6 +280,7 @@ var drugWars = angular.module("root", ['ngAnimate', 'ngRoute'])
 		$scope.sell = function(drug, total, currentPrice) {
 					 // console.log(drug);
 				 	 console.log($scope.user.Stats.inventoryTotal);
+				 	 $scope.drugToSell = { name  : "Nothing", value : 0, count : 0 }
 				   switch (drug) {
 					  case 'Shrooms':
 					  	// console.log('Shrooms sold');
