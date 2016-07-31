@@ -43,51 +43,51 @@
                     <p class="module__sentence">Select a drug to buy</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToBuy.value">25</span><span class="module__period" ng-bind="drugToBuy.name">{{drugToBuy.name}}</span></div>
                 <form name="buyForm" class="control-group">
-			            <label class="control control--radio">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Shrooms" ng-disabled="Market.Shrooms.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">PCP {{Market.PCP.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">PCP {{Market.PCP.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.PCP" ng-disabled="Market.PCP.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Speed {{Market.Speed.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Speed {{Market.Speed.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Speed" ng-disabled="Market.Speed.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Ludes {{Market.Ludes.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Ludes {{Market.Ludes.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Ludes" ng-disabled="Market.Ludes.value > user.Stats.numCash"  ng-checked="drugToBuy.name == 'Ludes'">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Acid {{Market.Acid.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Acid {{Market.Acid.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Acid" ng-disabled="Market.Acid.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Weed {{Market.Weed.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Weed {{Market.Weed.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Weed" ng-disabled="Market.Weed.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Heroin {{Market.Heroin.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Heroin {{Market.Heroin.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Heroin" ng-disabled="Market.Heroin.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Opium {{Market.Opium.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Opium {{Market.Opium.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Opium" ng-disabled="Market.Opium.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">MDMA {{Market.MDMA.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">MDMA {{Market.MDMA.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDMA" ng-disabled="Market.MDMA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Hashish {{Market.Hashish.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Hashish {{Market.Hashish.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Hashish" ng-disabled="Market.Hashish.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Peyote {{Market.Peyote.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Peyote {{Market.Peyote.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Peyote" ng-disabled="Market.Peyote.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio">Cocaine {{Market.Cocaine.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form">Cocaine {{Market.Cocaine.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Cocaine" ng-disabled="Market.Cocaine.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label></br>
@@ -103,7 +103,7 @@
                     <h3 class="module__title">Your Inventory</h3>
                     <p class="module__sentence">Select a drug to sell</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToSell.value">25</span><span class="module__period" ng-bind="drugToSell.name">{{drugToSell.name}}</span></div>
-		                <form>
+		                <form class="sell_form">
 					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count">{{ user.inventory.Shrooms.count }} Shroom(s) Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
 					              <div class="control__indicator"></div>
@@ -156,7 +156,7 @@
 			            <tt>drug name = {{drugToSell.name}}</tt><br/>
 			            <tt>drug cost = {{drugToSell.value}}</tt><br/> -->
 			            <button id="sell-button" class="module__action"
-			                              ng-click="sell(drugToSell.name, drugToSell.count, drugToSell.value)" ng-show="user.Stats.inventoryTotal">Sell 1</button>
+			                              ng-click="sell(drugToSell.name, drugToSell.count, drugToSell.value)" ng-show="user.Stats.inventoryTotal"><span ng-show="drugToSell.name == 'Nothing'">Select a drug</span><span ng-hide="drugToSell.name == 'Nothing'">Sell 1 {{drugToSell.name}}</span></button>
 			           </form>
                 </div>
                 <div class="module__item debt__item--featured">
