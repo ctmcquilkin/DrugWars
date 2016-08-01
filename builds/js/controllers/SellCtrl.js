@@ -1,10 +1,11 @@
 drugWars.controller('SellCtrl', ['$scope', '$interval', function($scope, $interval) {
-	// variable to bind sell radio buttons
-	$scope.drugToSell = { 
-		      name  : "Nothing",
-		      value : 0,
-		      count : 0
-	}
+	// $scope.resetDrugToSell = function() {
+	// 	count = $scope.user.Stats.inventoryTotal;
+	// 	if ( count == 0 ) {
+	// 		$scope.drugToSell.name = "Nothing";
+	// 		$scope.drugToSell.value = 0;
+	// 	}
+	// }
 	$scope.sell = function(drug, total, currentPrice) {
 			 	 console.log($scope.user.Stats.inventoryTotal);
 			 	 $scope.drugToSell = { name  : "Nothing", value : 0, count : 0 }

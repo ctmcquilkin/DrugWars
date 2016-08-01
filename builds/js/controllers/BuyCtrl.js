@@ -3,7 +3,7 @@ drugWars.controller('BuyCtrl', ['$scope', '$interval', function($scope, $interva
 		$scope.drugToBuy = { 
 			      name : "Ludes",
 			      value : 25,
-			      count : $scope.user.inventory.Shrooms.count
+			      count : $scope.user.Stats.inventoryTotal
 		} 
 		// Buy Function: add purchase to inventory, deduct cost, change the price
 		$scope.buy = function(drug) {

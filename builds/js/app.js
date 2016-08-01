@@ -20,7 +20,9 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 		$scope.newGame = function() { 
 					if ($scope.mapOpen) { $scope.mapToggle() };
 					$scope.user = angular.copy($scope.initialUser);
-					$scope.drugToSell = { name  : "Nothing", value : 0, count : 0 };
+					$scope.user.Stats.inventoryTotal = 0;
+					$scope.day = 1;
+					// $scope.drugToSell.$setViewValue({ name  : "Nothing", value : 0, count : 0 });
 
 					// Initial market drug prices
 					$scope.Market.Shrooms.value = 830;
@@ -38,6 +40,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 		}
 
 			$scope.jet = function (place) {
+				$scope.user.Stats.numDebt += $scope.user.Stats.numDebt * (0.1);
 				if ($scope.day < 31) {
 			   switch (place) {
 				  case 'Bronx':
@@ -112,6 +115,13 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 		$scope.mapToggle = function() {
 			$scope.mapOpen =! $scope.mapOpen;
 		};
+
+		// variable to bind sell radio buttons
+		$scope.drugToSell = { 
+			      name  : "Nothing",
+			      value : 0,
+			      count : 0
+		}
 
 		$scope.totalInventory = function() {
 			total = 0;
