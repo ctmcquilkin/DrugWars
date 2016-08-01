@@ -104,7 +104,7 @@
                     <p class="module__sentence">Select a drug to sell</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToSell.value">25</span><span class="module__period" ng-bind="drugToSell.name">{{drugToSell.name}}</span></div>
 		                <form class="sell_form">
-					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count">{{ user.inventory.Shrooms.count }} Shroom(s) Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count">{{ user.inventory.Shrooms.count }} Shrooms Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
 					              <div class="control__indicator"></div>
 					            </label>
@@ -162,7 +162,7 @@
                 <div class="module__item debt__item--featured">
                     <h3 class="module__title">Game Stats</h3>
                     <p class="module__sentence">Day {{day}}</p>
-                    <div id="debt-count" class="module__price"><span class="module__currency">$</span>{{user.Stats.numDebt}}<span class="module__period">Debt</span></div>
+                    <div id="debt-count" class="module__price"><span class="module__currency">$</span>{{user.Stats.numDebt | currency:"":0}}<span class="module__period">Debt</span></div>
 
                     <ul class="module__feature-list">
                         <li id="cash-count" class="module__feature">Cash: {{user.Stats.numCash | currency:"$":0}}</li>
@@ -170,7 +170,7 @@
                         <li class="module__feature">Health: {{user.Stats.numHealth}}</li>
                         <li class="module__feature">Guns: {{user.Stats.numGuns}}</li>
                     </ul>
-                    <button id="pay-debt" class="module__action" ng-click="payDebt()">Repay Debt</button>
+                    <button id="pay-debt" class="module__action" ng-click="payDebt()">Repay $1000 Debt</button>
                 </div>
             </div>
             <p>Angular version of the original: <strong><a href="https://en.wikipedia.org/wiki/Drugwars">Drug Wars</a></strong></p>

@@ -40,7 +40,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 		}
 
 			$scope.jet = function (place) {
-				$scope.user.Stats.numDebt += $scope.user.Stats.numDebt * (0.1);
+				$scope.user.Stats.numDebt += Math.round($scope.user.Stats.numDebt * (0.1));
 				if ($scope.day < 31) {
 			   switch (place) {
 				  case 'Bronx':
@@ -134,8 +134,12 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 
 		// Decrease numCash and numDebt every time pay-debt is clicked
 		$scope.payDebt = function() {
-			$scope.user.Stats.numDebt--;
-			$scope.user.Stats.numCash--;
+			console.log($scope.user.Stats.numCash);
+			if ($scope.user.Stats.numCash > 1000) {
+				console.log($scope.user.Stats.numCash);
+				$scope.user.Stats.numDebt -= 1000;
+				$scope.user.Stats.numCash -= 1000;
+			}
 		}
 
 		// Run UI update code every 10ms
@@ -155,6 +159,8 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 			$scope.Market.Peyote.value = Math.ceil(360 * $scope.locationCoEfficient);
 			$scope.Market.Cocaine.value = Math.ceil(23270 * $scope.locationCoEfficient);
 			$scope.user.Stats.inventoryTotal = $scope.totalInventory();
+
+			if ( $scope.user.Stats.numDebt < 0 ) { alert('game over you won!') };
 
 		}, 10);
     }]);

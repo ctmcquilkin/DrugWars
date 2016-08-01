@@ -42,7 +42,7 @@ drugWars.controller('SellCtrl', ['$scope', '$interval', function($scope, $interv
 						total = parseInt(total);
 						for (var i=0; i<total; i++) {
 							$scope.user.Stats.numCash += currentPrice;
-					  	$scope.user.inventory.inveAcid.count--;
+					  	$scope.user.inventory.Acid.count--;
 					  };
 					  break;
 				  case 'Weed':
