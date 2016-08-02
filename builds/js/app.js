@@ -22,6 +22,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 					$scope.user = angular.copy($scope.initialUser);
 					$scope.user.Stats.inventoryTotal = 0;
 					$scope.day = 1;
+					$scope.currentLocation == 'Bronx';
 					// $scope.drugToSell.$setViewValue({ name  : "Nothing", value : 0, count : 0 });
 
 					// Initial market drug prices
