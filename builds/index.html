@@ -43,51 +43,51 @@
                     <p class="module__sentence">Select a drug to buy</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToBuy.value">25</span><span class="module__period" ng-bind="drugToBuy.name">{{drugToBuy.name}}</span></div>
                 <form name="buyForm" class="control-group">
-			            <label class="control control--radio buy_form">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx'">Shrooms {{Market.Shrooms.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Shrooms" ng-disabled="Market.Shrooms.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">PCP {{Market.PCP.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx' && 'Brooklyn' && 'The City'">PCP {{Market.PCP.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.PCP" ng-disabled="Market.PCP.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Speed {{Market.Speed.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brooklyn'">Speed {{Market.Speed.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Speed" ng-disabled="Market.Speed.value > user.Stats.numCash">
 										<div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Ludes {{Market.Ludes.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Coney Is.'">Ludes {{Market.Ludes.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Ludes" ng-disabled="Market.Ludes.value > user.Stats.numCash"  ng-checked="drugToBuy.name == 'Ludes'">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Acid {{Market.Acid.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx'">Acid {{Market.Acid.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Acid" ng-disabled="Market.Acid.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Weed {{Market.Weed.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx'">Weed {{Market.Weed.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Weed" ng-disabled="Market.Weed.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Heroin {{Market.Heroin.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx' && 'Brooklyn' && 'The City'">Heroin {{Market.Heroin.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Heroin" ng-disabled="Market.Heroin.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Opium {{Market.Opium.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx' && 'Brooklyn'">Opium {{Market.Opium.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Opium" ng-disabled="Market.Opium.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">MDMA {{Market.MDMA.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brooklyn'">MDMA {{Market.MDMA.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDMA" ng-disabled="Market.MDMA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Hashish {{Market.Hashish.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brookyn' && 'The City'">Hashish {{Market.Hashish.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Hashish" ng-disabled="Market.Hashish.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Peyote {{Market.Peyote.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brookyn' && 'Coney Is.'">Peyote {{Market.Peyote.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Peyote" ng-disabled="Market.Peyote.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form">Cocaine {{Market.Cocaine.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Bronx' && 'Brooklyn'">Cocaine {{Market.Cocaine.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Cocaine" ng-disabled="Market.Cocaine.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label></br>
