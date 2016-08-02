@@ -104,51 +104,51 @@
                     <p class="module__sentence">Select a drug to sell</p>
                     <div class="module__price"><span class="module__currency">$</span><span ng-bind="drugToSell.value">25</span><span class="module__period" ng-bind="drugToSell.name">{{drugToSell.name}}</span></div>
 		                <form class="sell_form">
-					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count">{{ user.inventory.Shrooms.count }} Shrooms Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Shrooms.count && currentLocation != 'Bronx'">{{ user.inventory.Shrooms.count }} Shrooms Aquired for {{ user.inventory.Shrooms.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Shrooms">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.PCP.count">{{ user.inventory.PCP.count }} PCP(s) Aquired for {{ user.inventory.PCP.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.PCP.count && currentLocation !== 'Bronx' && currentLocation !== 'Brooklyn' && currentLocation != 'The City'">{{ user.inventory.PCP.count }} PCP(s) Aquired for {{ user.inventory.PCP.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.PCP">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Speed.count">{{ user.inventory.Speed.count }} Speed Aquired for {{ user.inventory.Speed.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Speed.count && currentLocation != 'Brooklyn'">{{ user.inventory.Speed.count }} Speed Aquired for {{ user.inventory.Speed.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Speed">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Ludes.count">{{ user.inventory.Ludes.count }} Ludes Aquired for {{ user.inventory.Ludes.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Ludes.count && currentLocation != 'Coney Is.'">{{ user.inventory.Ludes.count }} Ludes Aquired for {{ user.inventory.Ludes.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Ludes">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Acid.count">{{ user.inventory.Acid.count }} Acid Aquired for {{ user.inventory.Acid.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Acid.count && currentLocation != 'Bronx'">{{ user.inventory.Acid.count }} Acid Aquired for {{ user.inventory.Acid.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Acid">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Weed.count">{{ user.inventory.Weed.count }} Weed Aquired for {{ user.inventory.Weed.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Weed.count && currentLocation != 'Bronx'">{{ user.inventory.Weed.count }} Weed Aquired for {{ user.inventory.Weed.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Weed">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Heroin.count">{{ user.inventory.Heroin.count }} Heroin Aquired for {{ user.inventory.Heroin.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Heroin.count && currentLocation != 'Bronx' && currentLocation != 'Brooklyn' && currentLocation != 'The City'">{{ user.inventory.Heroin.count }} Heroin Aquired for {{ user.inventory.Heroin.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Heroin">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Opium.count">{{ user.inventory.Opium.count }} Opium Aquired for {{ user.inventory.Opium.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Opium.count && currentLocation != 'Bronx' && currentLocation != 'Brooklyn'">{{ user.inventory.Opium.count }} Opium Aquired for {{ user.inventory.Opium.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Opium">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.MDMA.count">{{ user.inventory.MDMA.count }} MDMA Aquired for {{ user.inventory.MDMA.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.MDMA.count && currentLocation != 'Brooklyn'">{{ user.inventory.MDMA.count }} MDMA Aquired for {{ user.inventory.MDMA.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.MDMA">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Hashish.count">{{ user.inventory.Hashish.count }} Hashish Aquired for {{ user.inventory.Hashish.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Hashish.count && currentLocation != 'Brooklyn' && currentLocation != 'The City'">{{ user.inventory.Hashish.count }} Hashish Aquired for {{ user.inventory.Hashish.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Hashish">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Peyote.count">{{ user.inventory.Peyote.count }} Peyote Aquired for {{ user.inventory.Peyote.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Peyote.count && currentLocation != 'Brooklyn' && currentLocation != 'Coney Is.'">{{ user.inventory.Peyote.count }} Peyote Aquired for {{ user.inventory.Peyote.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Peyote">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.Cocaine.count">{{ user.inventory.Cocaine.count }} Cocaine Aquired for {{ user.inventory.Cocaine.userCost | currency:"$":0}}
+					            <label class="control control--radio" ng-show="user.inventory.Cocaine.count && currentLocation != 'Bronx' && currentLocation != 'Brooklyn'">{{ user.inventory.Cocaine.count }} Cocaine Aquired for {{ user.inventory.Cocaine.userCost | currency:"$":0}}
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Cocaine">
 					              <div class="control__indicator"></div>
 					            </label>
