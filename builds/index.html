@@ -75,8 +75,8 @@
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Opium" ng-disabled="Market.Opium.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brooklyn'">MDMA {{Market.MDMA.value | currency:"$":0 }}
-			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDMA" ng-disabled="Market.MDMA.value > user.Stats.numCash">
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brooklyn'">MDA {{Market.MDA.value | currency:"$":0 }}
+			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDA" ng-disabled="Market.MDA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
 			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brookyn' && 'The City'">Hashish {{Market.Hashish.value | currency:"$":0 }}
@@ -136,8 +136,8 @@
 					              <input type="radio" ng-model="drugToSell" ng-value="Market.Opium">
 					              <div class="control__indicator"></div>
 					            </label>
-					            <label class="control control--radio" ng-show="user.inventory.MDMA.count && currentLocation != 'Brooklyn'">{{ user.inventory.MDMA.count }} MDMA Aquired for {{ user.inventory.MDMA.userCost | currency:"$":0}}
-					              <input type="radio" ng-model="drugToSell" ng-value="Market.MDMA">
+					            <label class="control control--radio" ng-show="user.inventory.MDA.count && currentLocation != 'Brooklyn'">{{ user.inventory.MDA.count }} MDA Aquired for {{ user.inventory.MDA.userCost | currency:"$":0}}
+					              <input type="radio" ng-model="drugToSell" ng-value="Market.MDA">
 					              <div class="control__indicator"></div>
 					            </label>
 					            <label class="control control--radio" ng-show="user.inventory.Hashish.count && currentLocation != 'Brooklyn' && currentLocation != 'The City'">{{ user.inventory.Hashish.count }} Hashish Aquired for {{ user.inventory.Hashish.userCost | currency:"$":0}}

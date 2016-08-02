@@ -40,8 +40,8 @@ drugWars.service('gameData', function(){
 			      value : 870,
 			      count : 1
 			      },
-		  MDMA : { 
-			      name : "MDMA",
+		  MDA : { 
+			      name : "MDA",
 			      value : 4330,
 			      count : 1
 			      },
@@ -95,7 +95,7 @@ drugWars.service('gameData', function(){
 						             'count' : 0,
 						             'userCost' : 870
 						     },
-						     MDMA : { 
+						     MDA : { 
 						             'count' : 0,
 						             'userCost' : 4330
 						     },

@@ -66,11 +66,11 @@ drugWars.controller('SellCtrl', ['$scope', '$interval', function($scope, $interv
 					  	$scope.user.inventory.Opium.count--;
 					  };
 					  break;
-				  case 'MDMA':
+				  case 'MDA':
 						total = parseInt(total);
 						for (var i=0; i<total; i++) {
 							$scope.user.Stats.numCash += currentPrice;
-					  	$scope.user.inventory.MDMA.count--;
+					  	$scope.user.inventory.MDA.count--;
 					  };
 					  break;
 				  case 'Hashish':
