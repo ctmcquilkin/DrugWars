@@ -24,7 +24,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 	
 		$scope.newGame = function() { 
 					if ($scope.mapOpen) { $scope.mapToggle() };
-					$scope.user = angular.copy($scope.initialUser);
+					$scope.user = angular.copy(initialUser);
 					$scope.user.Stats.inventoryTotal = 0;
 					$scope.currentLocation == 'Bronx';
 					// $scope.drugToSell.$setViewValue({ name  : "Nothing", value : 0, count : 0 });
@@ -175,7 +175,8 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 			  }
 		
 			} else {
-				alert('The loan shark broke your legs. Game over. Debt:' + $scope.numDebt);
+        var Restart = confirm('The loan shark broke your legs. Game over. Debt:', 'New Game');
+        if (Restart == 'New Game') { $scope.newGame() };
 			}
 		};
 
@@ -194,8 +195,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 
 		// Decrease numCash and numDebt every time pay-debt is clicked
 		$scope.payDebt = function() {
-			console.log($scope.user.Stats.numCash);
-			if ($scope.user.Stats.numCash > 1000) {
+			if ($scope.user.Stats.numCash >= 1000) {
 				$scope.user.Stats.numDebt -= 1000;
 				$scope.user.Stats.numCash -= 1000;
 			}
