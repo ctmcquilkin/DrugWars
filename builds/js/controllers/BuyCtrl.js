@@ -46,11 +46,15 @@ drugWars.controller('BuyCtrl', ['$scope', '$interval', function($scope, $interva
 					  $scope.user.Stats.numCash -= $scope.Market.Speed.value; // Deduct cost
 					  break;
 				  case 'Ludes':
+				  	console.log('Ludes');
 					  $scope.user.inventory.Ludes.count++; // add to inventory
+				  	console.log($scope.user.inventory.Ludes.count);
 					  if ($scope.user.inventory.Ludes.count > 1) { // average user cost if necessary
+					  	console.log('hi');
 					  	$scope.user.inventory.Ludes.userCost = $scope.Market.Ludes.value + $scope.user.inventory.Ludes.userCost / $scope.user.inventory.Ludes.count; 
 					  };
 					  $scope.user.inventory.Ludes.userCost = $scope.Market.Ludes.value; // save purchase price
+					  console.log($scope.user.inventory.Ludes.userCost)
 					  $scope.user.Stats.numCash -= $scope.Market.Ludes.value; // Deduct cost
 					  break;
 				  case 'Acid':
@@ -94,11 +98,14 @@ drugWars.controller('BuyCtrl', ['$scope', '$interval', function($scope, $interva
 					  $scope.user.Stats.numCash -= $scope.Market.MDA.value; // Deduct cost
 					  break;
 				  case 'Hashish':
+				  	console.log('Hashish');
 					  $scope.user.inventory.Hashish.count++; // add to inventory
+					  console.log($scope.user.inventory.Hashish.count);
 					  if ($scope.user.inventory.Hashish.count > 1) { // average user cost if necessary
 					  	$scope.user.inventory.Hashish.userCost = $scope.Market.Hashish.value + $scope.user.inventory.Hashish.userCost / $scope.user.inventory.Hashish.count; 
 					  };
 					  $scope.user.inventory.Hashish.userCost = $scope.Market.Hashish.value; // save purchase price
+					  console.log($scope.user.inventory.Hashish.userCost);
 					  $scope.user.Stats.numCash -= $scope.Market.Hashish.value; // Deduct cost
 					  break;
 				  case 'Peyote':

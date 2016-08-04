@@ -58,11 +58,11 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
         case 'newGame':
           $scope.newGame();
           $scope.message = false;
-          console.log('newGame');
+          // console.log('newGame');
           break;
         case 'close':
           $scope.message = false;
-          console.log('close');
+          // console.log('close');
           break;
         case 'Mugged':
           $scope.user.inventory.Shrooms.count = 0;
@@ -175,7 +175,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 			  }
 		
 			} else {
-        var Restart = confirm('The loan shark broke your legs. Game over. Debt:', 'New Game');
+        var Restart = confirm('The loan shark broke your legs. Game over. Debt:' +  $scope.user.Stats.numDebt, 'New Game');
         if (Restart == 'New Game') { $scope.newGame() };
 			}
 		};
@@ -203,6 +203,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 
 		// Run UI update code every 10ms
 		$interval(function() {
+      var GameOver = Boolean;
 		
 			// Change cost of drugs based on location, using Math.ceil() to round up
 			$scope.Market.Shrooms.value = Math.ceil(830 * $scope.locationCoEfficient); 
@@ -219,7 +220,7 @@ var drugWars = angular.module('root', ['ngAnimate', 'ngRoute'])
 			$scope.Market.Cocaine.value = Math.ceil(23270 * $scope.locationCoEfficient);
 			$scope.user.Stats.inventoryTotal = $scope.totalInventory();
 
-			if ( $scope.user.Stats.numDebt < 0 ) { alert('you won! Game over.') };
+			if ( $scope.user.Stats.numDebt < 0) { alert('you won! Game over.'); GameOver = true };
 
 		}, 10);
     }]);

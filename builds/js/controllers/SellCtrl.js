@@ -7,8 +7,8 @@ drugWars.controller('SellCtrl', ['$scope', '$interval', function($scope, $interv
 	// 	}
 	// }
 	$scope.sell = function(drug, total, currentPrice) {
-			 	 console.log($scope.user.Stats.inventoryTotal);
 			 	 $scope.drugToSell = { name  : "Nothing", value : 0, count : 0 }
+			 	 console.log(user.Stats.inventoryTotal);
 			   switch (drug) {
 				  case 'Shrooms':
 						total = parseInt(total);
