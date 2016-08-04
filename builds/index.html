@@ -30,13 +30,13 @@
         <section class="module-section bg-9">
             <h2 class="module-section__title">Drug Wars</h2>
 
-    <div id="wrapper" ng-show="message">
-      <div id="prompt">
+    <div class="module module--drugWars" ng-show="message">
+      <div class="module__item market__item--featured">
         <p ng-show="option_name">You have chosen <b>{{option_name}}</b></p>
         <p>{{scenario.prompt}}<span class="blinking-cursor">|</span></p>
+      <div ng-repeat="option in scenario.options"> 
+          <button class="module__action" data-ng-attr-id="option.path" ng-click="display_scenario(option)">{{option.name}}</button>
       </div>
-      <div id="options" ng-repeat="option in scenario.options"> 
-          <button data-ng-attr-id="option.path" ng-click="display_scenario(option)">{{option.name}}</button>
       </div>
     </div>
 
