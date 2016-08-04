@@ -113,11 +113,127 @@ drugWars.service('gameData', function(){
 						     },
 						   },
 					     Stats : { 
+					             'day'            : 1,
 					             'numCash'        : 2000,
 					             'numDebt'        : 5500,
 					             'numHealth'      : 100,
+					             'numTrenchcoat'  : 0,
+					             'numDrugMules'   : 0,
 					             'numGuns'        : 0,
 					             'inventoryTotal' : 0
 					     }
 						};
+	// Contains the messages and paths
+	this.Messages = {
+      Cops: {
+        prompt: 'Busted! Officer Hardass and his deputies have busted you.',
+        options: [{
+          name: 'Run!',
+          path: 'Run'
+        }, {
+          name: 'Fight!',
+          path: 'Fight'
+        }]
+      },
+      Run: {
+        prompt: 'You can\'t run! He\'s right behind you!',
+        options: [{
+          name: 'Fight!',
+          path: 'Fight'
+        }, {
+          name: 'Run!',
+          path: 'exit'
+        }]
+      },
+      exit: {
+        prompt: 'You lost him.',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      Fight: {
+        prompt: 'You shoot at the officers and die in a hail of bullets.',
+        options: [{
+          name: 'New Game.',
+          path: 'newGame'
+        }]
+      },
+      Mugged: {
+        prompt: 'You\'ve been Mugged!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      NoSpace: {
+        prompt: 'You\'re out of space in your trenchcoat!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      BiggerTrenchcoat: {
+        prompt: 'Want to buy a bigger trenchcoat for $1300?',
+        options: [{
+          name: 'OK',
+          path: 'PayForTrenchcoat'
+        }, {
+          name: 'Cancel',
+          path: 'close'
+        }]
+      },
+      DrugMule: {
+        prompt: 'Hey dude, I’ll carry drugs for you for $2500?',
+        options: [{
+          name: 'OK',
+          path: 'PayDrugMule'
+        }, {
+          name: 'Cancel',
+          path: 'close'
+        }]
+      },
+      FoundDrugs: {
+        prompt: 'You found a stash of Cocaine!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      AcidBust: {
+        prompt: 'Cops made a big Acid bust! Prices are outrageous!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      Opium: {
+        prompt: 'Addicts are buying Opium at ridiculous prices!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      WeedBust: {
+        prompt: 'Cops made a big Weed bust! Prices are outrageous!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      Weed: {
+        prompt: 'Columbian freighter dusted the Coast Guard! Weed prices have bottomed',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      },
+      Ludes: {
+        prompt: 'Rival drug dealers raided a pharmacy and are selling cheap Ludes!',
+        options: [{
+          name: 'OK',
+          path: 'close'
+        }]
+      }
+  };
 })

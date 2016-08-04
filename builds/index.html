@@ -18,7 +18,7 @@
 	<![endif]-->
 </head>
 
-<body ng-app >
+<body ng-app>
     <div class="container" ng-controller="DrugWarsCtrl">
 <!--         <header id="header">
           <h1>Drug Wars</h1>
@@ -30,7 +30,15 @@
         <section class="module-section bg-9">
             <h2 class="module-section__title">Drug Wars</h2>
 
-<div class="console" ng-show="message" class="ng-hide">This is where game messages will appear<span class="blinking-cursor">|</span></div>
+    <div id="wrapper" ng-show="message">
+      <div id="prompt">
+        <p ng-show="option_name">You have chosen <b>{{option_name}}</b></p>
+        <p>{{scenario.prompt}}<span class="blinking-cursor">|</span></p>
+      </div>
+      <div id="options" ng-repeat="option in scenario.options"> 
+          <button data-ng-attr-id="option.path" ng-click="display_scenario(option)">{{option.name}}</button>
+      </div>
+    </div>
 
 <div class="MapContainer animate-show" ng-show="mapOpen" class="ng-hide">
     <h2>Jet to:</h2>
@@ -161,7 +169,7 @@
                 </div>
                 <div class="module__item debt__item--featured">
                     <h3 class="module__title">Game Stats</h3>
-                    <p class="module__sentence">Day {{day}}</p>
+                    <p class="module__sentence">Day {{user.Stats.day}}</p>
                     <div id="debt-count" class="module__price"><span class="module__currency">$</span>{{user.Stats.numDebt | currency:"":0}}<span class="module__period">Debt</span></div>
 
                     <ul class="module__feature-list">
@@ -173,7 +181,7 @@
                     <button id="pay-debt" class="module__action" ng-click="payDebt()">Repay $1000 Debt</button>
                 </div>
             </div>
-            <p>Angular version of the original: <strong><a href="https://en.wikipedia.org/wiki/Drugwars">Drug Wars</a></strong></p>
+            <p>My Angular version of the original: <strong><a href="https://en.wikipedia.org/wiki/Drugwars">Drug Wars</a></strong></p>
         </section>
     </div>
     <!-- /container -->

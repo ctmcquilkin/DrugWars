@@ -7,7 +7,18 @@ drugWars.controller('BuyCtrl', ['$scope', '$interval', function($scope, $interva
 		} 
 		// Buy Function: add purchase to inventory, deduct cost, change the price
 		$scope.buy = function(drug) {
-				 // console.log(drug);
+			   var trenchcoat = 50;
+			   var drugMule = 100;
+			   var userMaxInventory = 100 + $scope.user.Stats.numDrugMules + $scope.user.Stats.numTrenchcoat;
+			   if ($scope.user.Stats.inventoryTotal > 100) {
+			   		if ($scope.user.Stats.numTrenchcoat == 0 && $scope.user.Stats.numDrugMules == 0) {
+			   			$scope.display_scenario({name: null, path: NoSpace});
+			   			return false;
+			   		} else if ($scope.user.Stats.inventoryTotal > userMaxInventory) {
+			   			$scope.display_scenario({name: null, path: NoSpace});
+			   			return false;
+			   		}
+			   };
 			   switch (drug) {
 				  case 'Shrooms':
 					  if ($scope.user.inventory.Shrooms == 0) {
