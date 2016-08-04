@@ -160,7 +160,7 @@ drugWars.service('gameData', function(){
         }]
       },
       Mugged: {
-        prompt: 'You\'ve been Mugged!',
+        prompt: 'You\'ve been Mugged! They stole your drugs.',
         options: [{
           name: 'OK',
           path: 'close'
