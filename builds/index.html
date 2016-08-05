@@ -87,7 +87,7 @@
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.MDA" ng-disabled="Market.MDA.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
-			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brookyn' && 'The City'">Hashish {{Market.Hashish.value | currency:"$":0 }}
+			            <label class="control control--radio buy_form" ng-hide="currentLocation == 'Brookyn' && currentLocation == 'The City'">Hashish {{Market.Hashish.value | currency:"$":0 }}
 			              <input type="radio" ng-model="drugToBuy" ng-value="Market.Hashish" ng-disabled="Market.Hashish.value > user.Stats.numCash">
 			              <div class="control__indicator"></div>
 			            </label>
